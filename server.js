@@ -78,56 +78,7 @@ http.createServer(function (req, res) {
       }
     });
   });
-}).listen(8082);
-
-// Registration Form Server
-server.createServer(function(request, response){
-    response.writeHead(200, {"Content-Type":"text/html"});
-    response.write("<html><head><title>Registration Form</title></head>"+
-    	"\n<body>"+
-    	"\n<h1>User Registration</h1>"+
-    	"<iframe name='sub' id='sub' src='#' style='display: none;'></iframe>"+
-    	"\n<form action='http://localhost:8084/' target='sub' name='registration'>"+
-    	"\n<label for='name'>LoginID: <label><input name='userid' type='text' value='' required default='codename' />"+
-    	"\n<label for='name'>First Name: <label><input name='fname' type='text' value='' required default='Mickey' />"+
-    	"\n<label for='name'>Last Name: <label><input name='lname' type='text' value='' required default='Mouse' />"+
-    	"\n<label for='name'>Password*: <label><input name='password' type='password' value='' required default='***' />"+
-    	"\n<label for='name'>Contact No.: <label><input name='contact' type='text' value='' required default='' />"+
-    	"\n<label for='name'>Address*: <label><input name='address' type='text' value='' required default='' />"+
-    	"\n<input name='submit' type='submit' value='Submit' />"+
-    	"\n</form>"+
-    	"\n</body>"+
-    	"\n</html>");
-    response.end();
-    
-}).listen(8083);
-
-// Registration Submission Server
-server.createServer(function(request, response){
-
-    //if(request.method == "POST") {
-	var url = require("url");
-	var params = url.parse(request.url, true).query;
-	    //if(params.userid == null) return false; // to avoid resubmitting of params with undefined values
-
-	var userid = new String(params.userid);
-	var password = new String(params.password);
-	var fname = new String(params.fname);
-	var lname = new String(params.lname);
-	var contact = new String(params.contact);
-	var address = new String(params.address);
-	var post = {userid, password, fname, lname, contact, address};
-
-	// insert the data to the database
-	submitToDB(post, "wt_user", "user_details");
-
-	response.writeHead(200, {"Content-Type":"text/html"});
-	response.write("<html><head><title>Registration Submitted</title></head><body></body></html>");
-	response.end();
-   // }
-
-}).listen(8084);
-
+}).listen(9000);
 
 
 // Log In Server
@@ -137,6 +88,16 @@ server.createServer(function(request, response){
 
     var user = params.user;
     var passwd = params.passwd;
+    if(params.action == "logout") {
+    	loggedUser = "";
+		response.writeHead(200, {"Content-Type":"text/html"});
+		//page will reload after a successful login
+		response.write("<html><head><title>Log In</title>"+
+		"<script type='text/javascript'>window.location.href='http://localhost:9001/';</script>"+
+		"</head><body></body></html>");
+		response.end();
+    	return false;
+    }
     if(params.user && params.passwd && loggedUser == "") {
 		var connection = mysql.createConnection({
 			host     : 'localhost',
@@ -160,6 +121,7 @@ server.createServer(function(request, response){
 		    	console.log(loggedUser);
 
 				response.writeHead(200, {"Content-Type":"text/html"});
+				//page will reload after a successful login
 				response.write("<html><head><title>Log In</title>"+
 				"<script type='text/javascript'>window.location.reload()</script>"+
 				"</head><body></body></html>");
@@ -167,7 +129,7 @@ server.createServer(function(request, response){
 
 		    } else {
 				response.writeHead(200, {"Content-Type":"text/html"});
-				response.write("<h1>Invalid Credentials.</h1>");
+				response.write("<h1>Invalid Credentials.</h1><a href='http://localhost:9001/'>Try Again</a>");
 			    response.end();
 		    }
 		});
@@ -176,55 +138,128 @@ server.createServer(function(request, response){
     }
 
 	response.writeHead(200, {"Content-Type":"text/html"});
-	response.write("<html><head><title>Log In</title>"+
-	"<script type='text/javascript'>if("+loggedUser+".length > 0){widow.location.reload();}</script>"+
-	"</head><body>");
+	response.write("<html><head><title>Log In</title></head><body>");
     if(loggedUser == "") {	
-		response.write("<form name='login' action='http://localhost:8085/' target='_top'>"+
+		response.write("<form name='login' action='http://localhost:9001/' target='_top'>"+
 			"Userid: <input type='text' name='user'> <br>"+
 			"Password: <input type='password' name='passwd'> <br>"+
 			"<input type='submit' value='login'>"+
-			"</form>");
+			"</form><a href='http://localhost:9002/'>Register</a>");
 	} else {
-		response.write("<h1>You are already logged in.</h1>");
+		response.write("<h1>*Homepage*</h1>");
+		response.write("<ul>");
+		response.write("<li><a href='#'>Profile (not coded yet)</a></li>");
+		response.write("<li><a href='http://localhost:9004/?receiver=user2'>Chatbox (sample: user2 as receiver)</a></li>");
+		response.write("<li><a href='http://localhost:9001/?action=logout'>Log out</a></li>");
+		response.write("</ul>");
 	}
 	response.write("</body></html>");
     response.end();
 
-}).listen(8085);
+}).listen(9001);
 
+// Registration Form Server
+server.createServer(function(request, response){
+    response.writeHead(200, {"Content-Type":"text/html"});
+    response.write("<html>"+
+    	"\n<head>\n<title>Registration Form</title>"+
+    	"\n</head>"+
+    	"\n<body>");
 
+    	if(loggedUser.length == 0) {
+	    	response.write("\n<h1>User Registration</h1>"+
+	    	//"\n<iframe name='sub' id='sub' src='#' style='display: none;'></iframe>"+
+	    	"\n<form action='http://localhost:9003/' target='_top' name='registration'>"+
+	    	"\n<label for='name'>LoginID: <label><input name='userid' type='text' value='' required default='codename' />"+
+	    	"\n<label for='name'>First Name: <label><input name='fname' type='text' value='' required default='Mickey' />"+
+	    	"\n<label for='name'>Last Name: <label><input name='lname' type='text' value='' required default='Mouse' />"+
+	    	"\n<label for='name'>Password*: <label><input name='password' type='password' value='' required default='***' />"+
+	    	"\n<label for='name'>Contact No.: <label><input name='contact' type='text' value='' required default='' />"+
+	    	"\n<label for='name'>Address*: <label><input name='address' type='text' value='' required default='' />"+
+	    	"\n<input name='submit' type='submit' value='Submit' />"+
+	    	"\n</form>");
+    	} else {
+    		response.write("<h1>You are logged in!</h1>");
+    	}
+
+    	response.write("\n</body>"+
+    	"\n</html>");
+    response.end();
+    
+}).listen(9002);
+
+// Registration Submission Server
+server.createServer(function(request, response){
+
+    //if(request.method == "POST") {
+	var url = require("url");
+	var params = url.parse(request.url, true).query;
+	
+	if(params.userid == null) {
+		response.writeHead(200, {"Content-Type":"text/html"});
+		response.write("<html><head><title>Registration Error</title></head><body><h1>Invalid Details</h1><a href='http://localhost:9001/'>Log-In</a></body></html>");
+		response.end();
+	} else {
+		var userid = new String(params.userid);
+		var password = new String(params.password);
+		var fname = new String(params.fname);
+		var lname = new String(params.lname);
+		var contact = new String(params.contact);
+		var address = new String(params.address);
+		var post = {userid, password, fname, lname, contact, address};
+
+		// insert the data to the database
+		submitToDB(post, "wt_user", "user_details");
+
+		response.writeHead(200, {"Content-Type":"text/html"});
+		response.write("<html><head><title>Registration Submitted</title></head><body>"+
+		"<h1>Wait for a few hours for confirmation.</h1>"+
+		"<a href='http://localhost:9001/'>Log In</a>"+
+		"</body></html>");
+		response.end();
+	}
+}).listen(9003);
 
 // Chatbox Form Server
 server.createServer(function(request, response){
 	var url = require("url");
     var params = url.parse(request.url, true).query;
-    console.log(params);
+    
+    //console.log(params);
 
     response.writeHead(200, {"Content-Type":"text/html"});
-    response.write("<html>"+
-    	"\n<head>\n<title>Chatbox Form</title>"+
-    	"\n<link rel='stylesheet' type='text/css' href='http://localhost:8082/chat-style.css' />"+
-    	"\n<script type='text/javascript' src='http://localhost:8082/chat-script.js'></script>"+
-    	"\n<script type='text/javascript'>\nvar sender=\""+params.sender+"\";\nvar receiver=\""+params.receiver+"\";\n</script>"+
-    	"\n</head>"+
-    	"\n<body>"+
-    	"\n<h1>Node.js Chatbox (User 1)</h1>"+
-    	"\n<iframe name='chatsubmit' id='chatsubmit' src='#' style='display: none;'></iframe>"+
-    	"\n<form id='chatbox' action='http://localhost:8087/' target='chatsubmit' name='chatbox'>"+
-    	"\n<div id='messages'></div>"+
-    	"\n<label for='sender'>Name: </label>"+
-    	"\n<input class='text' name='sender' type='text' value='" + params.sender +"' required />"+
-    	"\n<label for='msg'>Message: </label><textarea class='text' name='msg'></textarea>"+
-    	"\n<input name='receiver' type='hidden' value='"+params.receiver+"' />"+
-    	"\n<input class='button' type='submit' value='Submit' />"+
-    	"\n<input class='button'  type='reset' value='Reset' />"+
-    	"\n</form>"+
-    	"\n<script type='text/javascript'>setTimeout(function(){fetchNewChatData();}, 3000);</script>"+
-    	"\n</body>"+
-    	"\n</html>");
+
+    	if(params.receiver && loggedUser.length > 0) {
+    		response.write("<html>"+
+	    	"\n<head>\n<title>Chatbox Form</title>"+
+	    	"\n<link rel='stylesheet' type='text/css' href='http://localhost:9000/chat-style.css' />"+
+	    	"\n<script type='text/javascript' src='http://localhost:9000/chat-script.js'></script>"+
+	    	"\n<script type='text/javascript'>\nvar loggedUser=\""+loggedUser+"\";\nvar receiver=\""+params.receiver+"\";\n</script>"+
+	    	"\n</head>"+
+	    	"\n<body>");
+	    	response.write("\n<h1>Chatting with "+params.receiver+"</h1>"+
+	    	"\n<iframe name='chatsubmit' id='chatsubmit' src='#' style='display: none;'></iframe>"+
+	    	"\n<form id='chatbox' action='http://localhost:9005/' target='chatsubmit' name='chatbox'>"+
+	    	"\n<iframe id='msgbox' src='http://localhost:9006/?receiver="+params.receiver+"'></iframe></div>"+
+	    	"\n<label for='sender'>Name: </label>"+
+	    	"\n<input class='text' name='sender' type='text' value='" + loggedUser +"' required />"+
+	    	"\n<label for='msg'>Message: </label><textarea class='text' name='msg'></textarea>"+
+	    	"\n<input name='receiver' type='hidden' value='"+params.receiver+"' />"+
+	    	"\n<input class='button' type='submit' value='Submit' />"+
+	    	"\n<input class='button'  type='reset' value='Reset' />"+
+	    	"\n</form>"+
+	    	"\n<script type='text/javascript'>setTimeout(function(){fetchNewChatData();}, 3000);</script>");
+
+			response.write("<a href='http://localhost:9001/'>Home</a>");
+
+	    	response.write("\n</body>"+"\n</html>");
+	    } else {
+			response.write("<html><head><title>Chatbox Error</title></head><body><h1>Invalid Details</h1><a href='http://localhost:9001/'>Log-In</a></body></html>");
+	    }
+
+
     response.end();
-}).listen(8086);
+}).listen(9004);
 
 // Chatbox Submission Server
 server.createServer(function(request, response){
@@ -240,15 +275,13 @@ server.createServer(function(request, response){
 	response.writeHead(200, {"Content-Type":"text/html"});
 	response.write("<html><head><title>Message Sent</title></head><body></body></html>");
     response.end();
-}).listen(8087);
+}).listen(9005);
 
 //Chatbox Message-Fetching Server
-/*
-var g="global";
 server.createServer(function(request, response){
 	var url = require("url");
     var params = url.parse(request.url, true).query;
-    var sender = params.sender;
+    //var sender = params.sender;
     var receiver = params.receiver;
 
 	var connection = mysql.createConnection({
@@ -263,21 +296,35 @@ server.createServer(function(request, response){
 		    console.log(err);
 		}
 	});
-	var result = "";
-	connection.query("SELECT * from messages where (sender='"+sender+"' and receiver='"+receiver+"') OR "+
-	"(receiver='"+sender+"' and sender='"+receiver+"')", function(err, rows, fields) {
+	//var result = "";
+	connection.query("SELECT * from messages where (sender='"+loggedUser+"' and receiver='"+receiver+"') OR "+
+	"(receiver='"+loggedUser+"' and sender='"+receiver+"') order by msgnum limit 10", function(err, rows, fields) {
 	    if(err){
 	        console.log(err);
 	        return;
 	    }
-	});
-	return result;
 
-	response.writeHead(200, {"Content-Type":"text/html"});
-	response.write("<html><head><title>Message Sent</title></head><body></body></html>");
-    response.end();
-}).listen(8087);
-*/
+	    response.writeHead(200, {"Content-Type":"text/html"});
+		response.write("<html><head><title>Messages</title>");
+		response.write("<script type='text/javascript'>setTimeout(function() {window.location.reload();}, 3000);</script>");
+		response.write("<link rel='stylesheet' type='text/css' href='http://localhost:9000/chat-style.css' />");
+		response.write("</head><body>");
+	    for(r = 0; r < rows.length; r++) {
+	    	//console.log(typeof rows.sender);
+	    	if(loggedUser == rows[r].sender) { // your message
+				response.write("\n<span class='sent'><span class='receiver'>"+loggedUser+"</span>");
+				response.write("\n<span class='sent_message'>"+rows[r].message+"</span></span>");
+	    	} else { // what you received
+				response.write("\n<span class='received'><span class='sender'>"+params.receiver+"</span>");
+				response.write("\n<span class='received_message'>"+rows[r].message+"</span></span>");
+	    	}
+	    }
+		response.write("\n</body></html>");
+		response.end();
+	});
+
+}).listen(9006);
+
 
 
 
