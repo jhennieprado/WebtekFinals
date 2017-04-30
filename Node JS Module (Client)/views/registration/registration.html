@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>User registration</title>
+</head>
+<body>
+<h1>Registration Form</h1>
+<form action='http://localhost:9000/register' target='_top' name='registration'>
+		   	<label for='username'>Username: <label><input name='username' type='text' value='' required default='codename' /><br>
+		   	<label for='first_name'>First Name: <label><input name='first_name' type='text' value='' required /><br>
+		   	<label for='last_name'>Last Name: <label><input name='last_name' type='text' value='' required /><br>
+		   	<label for='birthdate'>Birthdate: <label><input name='birthdate' type='date' value='' required /><br>
+		   	<label for='email'>Email: <label><input name='email' type='text' value='' required /><br>
+		   	<label for='password'>Password*: <label><input name='password' type='password' value='' required /><br>
+		   	<label for='contactNo'>Contact No.: <label><input name='contactno' type='text' value='' required /><br>
+		   	<label for='address'>Address*: <label><input name='address' type='text' value='' required default='' /><br>
+		   	<input name='action' type='hidden' value='submit' />
+		   	<input name='submit' type='submit' value='Submit' />
+</form>
+</body>
+</html>

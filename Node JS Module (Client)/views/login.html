@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>User Login</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
+<script>
+$(document).ready(function(){
+    var u, p;
+    $("#submit").click(function(){
+        u=$("#username").val();
+        p=$("#password").val();
+        $("#status").html("Logging In...");
+        $.post("http://localhost:9000/login",{username:u,password:p},function(data){ 
+            if(data=='done')  {
+                window.location.href="/home";
+            } else {
+            	$("#status").html("Invalid Credentials!");
+            }
+        });
+    });
+});
+</script>
+</head>
+<body>
+<h1>Welcome</h1>
+<h2>User Login</h2>
+<input type="text" size="40" placeholder="Type your username" id="username"><br />
+<input type="password" size="40" placeholder="Type your password" id="password"><br />
+<input type="button" value="Submit" id="submit">
+<div id='status'></div>
+<a href="/register">Register</a>
+
+
+
+
+</body>
+</html>
+
