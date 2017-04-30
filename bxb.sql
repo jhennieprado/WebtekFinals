@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2017 at 12:25 AM
+-- Generation Time: Apr 30, 2017 at 07:55 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -23,42 +23,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `appointment`
+-- Table structure for table `appointments`
 --
 
-CREATE TABLE `appointment` (
+CREATE TABLE `appointments` (
   `appointmentno` int(11) NOT NULL,
-  `amount` double NOT NULL,
-  `daterequest` date NOT NULL,
+  `address` varchar(160) NOT NULL,
+  `daterequest` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dateofservice` date NOT NULL,
-  `dateFinished` date NOT NULL,
-  `status` char(10) NOT NULL,
+  `amount` float NOT NULL,
   `clientno` int(11) NOT NULL,
   `spid` int(11) NOT NULL,
   `serviceid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `appointment`
---
-
-INSERT INTO `appointment` (`appointmentno`, `amount`, `daterequest`, `dateofservice`, `dateFinished`, `status`, `clientno`, `spid`, `serviceid`) VALUES
-(1, 800, '2016-08-17', '2016-10-17', '2016-10-17', 'finished', 101134, 220012, 205),
-(2, 1500, '2016-08-24', '2017-04-30', '2017-04-30', 'finished', 110005, 220042, 209),
-(3, 450, '2017-02-13', '2017-02-13', '2017-02-13', 'cancelled', 101113, 224695, 214),
-(4, 1050, '2016-03-14', '2016-03-24', '2016-03-24', 'finished', 102589, 220254, 206),
-(5, 950, '2016-07-06', '2016-07-14', '2016-07-14', 'finished', 110006, 220125, 211),
-(6, 650, '2015-12-13', '2015-12-15', '2015-12-15', 'cancelled', 101425, 220052, 218),
-(7, 210, '2017-03-15', '2017-03-19', '2017-03-19', 'finished', 110010, 226482, 213),
-(8, 2200, '2016-05-13', '2016-05-17', '2016-05-17', 'finished', 110007, 2225142, 220);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `client`
+-- Table structure for table `clients`
 --
 
-CREATE TABLE `client` (
+CREATE TABLE `clients` (
   `clientno` int(11) NOT NULL,
   `first_name` char(20) NOT NULL,
   `last_name` char(15) NOT NULL,
@@ -66,28 +51,26 @@ CREATE TABLE `client` (
   `email` varchar(45) NOT NULL,
   `username` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
-  `contactNo` varchar(15) NOT NULL,
-  `accountcreated` timestamp(2) NOT NULL,
-  `accepted` enum('Y','N') NOT NULL,
+  `contactno` varchar(11) NOT NULL,
+  `address` varchar(60) NOT NULL,
+  `accountcreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `accepted` enum('Y','N') NOT NULL DEFAULT 'N',
   `profpic` blob
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `client`
+-- Dumping data for table `clients`
 --
 
-INSERT INTO `client` (`clientno`, `first_name`, `last_name`, `birthdate`, `email`, `username`, `password`, `contactNo`, `accountcreated`, `accepted`, `profpic`) VALUES
-(101113, 'Joshua', 'Warren', '1982-03-23', 'WarrenJosh@gmail.com', 'JoshWarren', 'iyoyiw77', '09107392170', '2017-04-27 15:37:59.00', 'N', NULL),
-(101134, 'Jared', 'Vasquez', '1986-04-22', 'jared01@yahoo.com', 'JaredVasquez', 'pjvde96s', '09472961670', '2017-04-27 15:49:23.00', 'Y', NULL),
-(101425, 'Aubrey', 'Aguilar', '1992-05-18', 'AguilarA@gmail.com', 'AubreyA', 'aub1992a', '09151940119', '2017-04-27 15:48:48.00', 'N', NULL),
-(102589, 'Loraine', 'Luna', '1989-02-16', 'Loraine992@gmail.com', 'LorLuna', 'lunapass7832', '09458127041', '2017-04-27 15:38:39.00', 'Y', NULL),
-(110005, 'Norma', 'Castro', '1990-01-03', 'NormaCastro77@yahoo.com', 'NormaCastro', 'cas456tro', '09081904216', '2017-04-27 23:35:50.00', 'Y', NULL),
-(110006, 'Katie', 'Fuller', '1991-10-19', 'katfuller@gmail.com', 'Kat', '1991kabnm', '09184686141', '2017-04-27 23:41:30.00', 'Y', NULL),
-(110007, 'Rex', 'Scott', '1989-11-16', 'rex256@gmail.com', 'RexS', 'yuio567', '09774978637', '2017-04-27 23:41:30.00', 'Y', NULL),
-(110009, 'Lynda', 'Riley', '1975-06-08', 'LynRil@gmail.com', 'Lynda', 'ril678da', '09288036814', '2017-04-27 23:35:18.00', 'Y', NULL),
-(110010, 'Anita', 'Berry', '1992-05-11', 'Aberry@yahoo.com', 'Anita', 'zxc234', '09196925493', '2017-04-27 23:35:18.00', 'Y', NULL),
-(110012, 'Walter', 'Black', '1990-09-13', 'walterblack12@yahoo.com', 'Walter', '987walter', '09287042539', '2017-04-27 23:46:44.00', 'Y', NULL),
-(110015, 'Elaine', 'Estrada', '1982-07-19', 'elaine34@gmail.com', 'elestrada', 'salonpw', '09268130247', '2017-04-27 23:46:44.00', 'Y', NULL);
+INSERT INTO `clients` (`clientno`, `first_name`, `last_name`, `birthdate`, `email`, `username`, `password`, `contactno`, `address`, `accountcreated`, `accepted`, `profpic`) VALUES
+(101113, 'Joshua', 'Warren', '1982-03-23', 'WarrenJosh@gmail.com', 'JoshWarren', 'iyoyiw77', '09107392170', 'ABC Rd, Quantum Theory City', '2017-04-27 07:37:59', 'N', NULL),
+(101134, 'Jared', 'Vasquez', '1986-04-22', 'jared01@yahoo.com', 'JaredVasquez', 'pjvde96s', '09472961670', 'Bagong Anak, Dinasilang Bldg., BC.', '2017-04-27 07:49:23', 'Y', NULL),
+(101425, 'Aubrey', 'Aguilar', '1992-05-18', 'AguilarA@gmail.com', 'AubreyA', 'aub1992a', '09151940119', 'Alpaca 69, Dagupan City', '2017-04-27 07:48:48', 'N', NULL),
+(102589, 'Loraine', 'Luna', '1989-02-16', 'Loraine992@gmail.com', 'LorLuna', 'lunapass7832', '09458127041', 'Orocan Rd., Dagupan, Pangasinan', '2017-04-27 07:38:39', 'Y', NULL),
+(110005, 'Norma', 'Castro', '1990-01-03', 'NormaCastro77@yahoo.com', 'NormaCastro', 'cas456tro', '09081904216', '#22 Bonifacio St., Baguio City', '2017-04-27 15:35:50', 'Y', NULL),
+(110006, 'Katie', 'Fuller', '1991-10-19', 'katfuller@gmail.com', 'Kat', '1991kabnm', '09184686141', 'Water Station Heaven Rd., BC', '2017-04-27 15:41:30', 'Y', NULL),
+(110007, 'Rex', 'Scott', '1989-11-16', 'rex256@gmail.com', 'RexS', 'yuio567', '09774978637', 'Ang River, Sa Tubig City', '2017-04-27 15:41:30', 'Y', NULL),
+(110009, 'Lynda', 'Riley', '1975-06-08', 'LynRil@gmail.com', 'Lynda', 'ril678da', '09288036814', 'Pels stop St., Last One Bldg, BC', '2017-04-27 15:35:18', 'Y', NULL);
 
 -- --------------------------------------------------------
 
@@ -96,19 +79,93 @@ INSERT INTO `client` (`clientno`, `first_name`, `last_name`, `birthdate`, `email
 --
 
 CREATE TABLE `messages` (
-  `messageid` varchar(45) NOT NULL,
-  `receiver` int(11) NOT NULL,
-  `sender` int(11) NOT NULL,
-  `mdesc` varchar(160) DEFAULT NULL
+  `messageid` int(11) NOT NULL,
+  `sender_username` varchar(45) NOT NULL,
+  `message` varchar(160) NOT NULL,
+  `client_username` varchar(45) NOT NULL,
+  `sp_username` varchar(45) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `service`
+-- Table structure for table `ratings`
 --
 
-CREATE TABLE `service` (
+CREATE TABLE `ratings` (
+  `idrating` int(11) NOT NULL,
+  `clientno` int(11) NOT NULL,
+  `spid` int(11) NOT NULL,
+  `rating` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ratings`
+--
+
+INSERT INTO `ratings` (`idrating`, `clientno`, `spid`, `rating`) VALUES
+(2, 101134, 220012, 3),
+(3, 102589, 220012, 4),
+(4, 110005, 220012, 4),
+(5, 110007, 220042, 4),
+(6, 102589, 220042, 3),
+(7, 110006, 220125, 4),
+(8, 110007, 220582, 5),
+(9, 110009, 226482, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reports`
+--
+
+CREATE TABLE `reports` (
+  `idreport` int(11) NOT NULL,
+  `clientno` int(11) NOT NULL,
+  `spid` int(11) NOT NULL,
+  `reportmessage` varchar(160) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `serviceproviders`
+--
+
+CREATE TABLE `serviceproviders` (
+  `spid` int(11) NOT NULL,
+  `first_name` char(20) NOT NULL,
+  `last_name` char(10) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `contactno` varchar(11) NOT NULL,
+  `username` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  `accepted` enum('Y','N') NOT NULL DEFAULT 'N',
+  `profpic` blob
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `serviceproviders`
+--
+
+INSERT INTO `serviceproviders` (`spid`, `first_name`, `last_name`, `email`, `contactno`, `username`, `password`, `accepted`, `profpic`) VALUES
+(220012, 'Irma', 'Baker', 'irmabaker9@gmail.com', '09188988995', 'Irma', 'bakeeer56', 'Y', NULL),
+(220042, 'Thomas', 'Ryan', 'ThomasR88@gmail.com', '09465694371', 'Thomas', 'jaden1456', 'Y', NULL),
+(220052, 'Jessie', 'Lee', 'jessie03@yahoo.com', '09772213075', 'JessieLee', '03qwerty', 'N', NULL),
+(220125, 'Myron', 'Franklin', 'MFranklin@yahoo.com', '09436845560', 'Myron', 'ixabun27', 'Y', NULL),
+(220254, 'Lela', 'Salazar', 'lela52salazar@yahoo.com', '09158847461', 'Lela', '123LS52', 'N', NULL),
+(220582, 'Angelica', 'Sherman', 'angel67@gmail.com', '09265751126', 'angel', 'sherang546', 'Y', NULL),
+(224695, 'Gerard', 'West', 'GW67@gmail.com', '09282713478', 'GW', '67drareg', 'N', NULL),
+(226482, 'May', 'Ellis', 'ellismay@yahoo.com', '09499251352', 'Maye', '1983may', 'Y', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `services`
+--
+
+CREATE TABLE `services` (
   `serviceid` int(11) NOT NULL,
   `servicename` char(20) NOT NULL,
   `serviceamount` float NOT NULL,
@@ -117,15 +174,15 @@ CREATE TABLE `service` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `service`
+-- Dumping data for table `services`
 --
 
-INSERT INTO `service` (`serviceid`, `servicename`, `serviceamount`, `description`, `category`) VALUES
+INSERT INTO `services` (`serviceid`, `servicename`, `serviceamount`, `description`, `category`) VALUES
 (201, 'Haircut', 150, 'starting price for minimum length ', 'hair'),
 (202, 'shampoo and blowdry', 100, '', 'hair'),
 (203, 'Iron/Curling', 500, 'straighten or curl hair', 'hair'),
-(204, 'Eye makeup', 400, 'any style for eye makeup', 'Makeup'),
-(205, 'Full makeup', 800, 'full face makeup', 'Makeup'),
+(204, 'Eye makeup', 400, 'any style for eye makeup', 'makeup'),
+(205, 'Full makeup', 800, 'full face makeup', 'makeup'),
 (206, 'tint (root)', 1050, 'hair coloring at the roots', 'color'),
 (207, 'tint (full)', 1450, 'hair coloring of full length', 'color'),
 (208, 'Conditioning', 1300, 'hair color conditioning', 'color'),
@@ -150,62 +207,52 @@ INSERT INTO `service` (`serviceid`, `servicename`, `serviceamount`, `description
 -- --------------------------------------------------------
 
 --
--- Table structure for table `serviceprovider`
+-- Table structure for table `sp_skills`
 --
 
-CREATE TABLE `serviceprovider` (
+CREATE TABLE `sp_skills` (
   `spid` int(11) NOT NULL,
-  `first_name` char(20) NOT NULL,
-  `last_name` char(10) NOT NULL,
-  `email` varchar(45) NOT NULL,
-  `contactno` varchar(15) NOT NULL,
-  `totalrating` float NOT NULL,
-  `username` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
-  `accepted` enum('Y','N') NOT NULL,
-  `profpic` blob
+  `serviceid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `serviceprovider`
+-- Dumping data for table `sp_skills`
 --
 
-INSERT INTO `serviceprovider` (`spid`, `first_name`, `last_name`, `email`, `contactno`, `totalrating`, `username`, `password`, `accepted`, `profpic`) VALUES
-(220012, 'Irma', 'Baker', 'irmabaker9@gmail.com', '09188988995', 92, 'Irma', 'bakeeer56', 'Y', NULL),
-(220042, 'Thomas', 'Ryan', 'ThomasR88@gmail.com', '09465694371', 92, 'Thomas', 'jaden1456', 'Y', NULL),
-(220052, 'Jessie', 'Lee', 'jessie03@yahoo.com', '09772213075', 79, 'JessieLee', '03qwerty', 'N', NULL),
-(220125, 'Myron', 'Franklin', 'MFranklin@yahoo.com', '09436845560', 80, 'Myron', 'ixabun27', 'Y', NULL),
-(220254, 'Lela', 'Salazar', 'lela52salazar@yahoo.com', '09158847461', 92, 'Lela', '123LS52', 'N', NULL),
-(220582, 'Angelica', 'Sherman', 'angel67@gmail.com', '09265751126', 89, 'angel', 'sherang546', 'Y', NULL),
-(224695, 'Gerard', 'West', 'GW67@gmail.com', '09282713478', 82, 'GW', '67drareg', 'N', NULL),
-(226482, 'May', 'Ellis', 'ellismay@yahoo.com', '09499251352', 86, 'MayE', '1983may', 'Y', NULL),
-(2225142, 'Carmen', 'Flores', 'carmenflores12@gmail.com', '09129062721', 78, 'CarmenF', 'c12flores', 'Y', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `spservice`
---
-
-CREATE TABLE `spservice` (
-  `spid` int(11) NOT NULL,
-  `serviceid` int(11) NOT NULL,
-  `rating` float DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `spservice`
---
-
-INSERT INTO `spservice` (`spid`, `serviceid`, `rating`) VALUES
-(220012, 205, 92),
-(220042, 209, 92),
-(224695, 214, 82),
-(220254, 206, 92),
-(220125, 211, 80),
-(220052, 218, 79),
-(226482, 213, 86),
-(2225142, 220, 78);
+INSERT INTO `sp_skills` (`spid`, `serviceid`) VALUES
+(220012, 201),
+(220012, 202),
+(220012, 203),
+(220012, 208),
+(220042, 209),
+(220042, 204),
+(220042, 205),
+(220042, 211),
+(220052, 214),
+(220052, 210),
+(220052, 211),
+(220052, 212),
+(220125, 206),
+(220125, 207),
+(220125, 208),
+(220125, 209),
+(220254, 211),
+(220254, 210),
+(220254, 213),
+(220254, 214),
+(220582, 218),
+(220582, 215),
+(220582, 216),
+(220582, 217),
+(224695, 213),
+(224695, 218),
+(224695, 219),
+(224695, 220),
+(226482, 221),
+(226482, 222),
+(226482, 223),
+(226482, 224),
+(226482, 225);
 
 -- --------------------------------------------------------
 
@@ -215,40 +262,30 @@ INSERT INTO `spservice` (`spid`, `serviceid`, `rating`) VALUES
 
 CREATE TABLE `transaction` (
   `idtransaction` int(11) NOT NULL,
-  `transdate` timestamp(2) NOT NULL,
-  `appointmentno` int(11) NOT NULL
+  `transdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `appointmentno` int(11) NOT NULL,
+  `status` enum('Paid','Pending') NOT NULL DEFAULT 'Pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `transaction`
---
-
-INSERT INTO `transaction` (`idtransaction`, `transdate`, `appointmentno`) VALUES
-(1, '2017-04-28 00:22:24.00', 1),
-(2, '2017-04-28 00:24:47.00', 2),
-(3, '2017-04-28 00:24:47.00', 4),
-(4, '2017-04-28 00:24:47.00', 5),
-(5, '2017-04-28 00:24:47.00', 7),
-(6, '2017-04-28 00:24:47.00', 8);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `appointment`
+-- Indexes for table `appointments`
 --
-ALTER TABLE `appointment`
+ALTER TABLE `appointments`
   ADD PRIMARY KEY (`appointmentno`),
   ADD UNIQUE KEY `appointmentNo_UNIQUE` (`appointmentno`),
-  ADD KEY `clientNo_idx` (`clientno`),
-  ADD KEY `spID_idx` (`spid`),
-  ADD KEY `serviceID_idx` (`serviceid`);
+  ADD KEY `serviceID_idx` (`serviceid`),
+  ADD KEY `fk_amount_serviceamount_idx` (`amount`),
+  ADD KEY `fk_app_client_idx` (`clientno`),
+  ADD KEY `fk_app_spid_idx` (`spid`);
 
 --
--- Indexes for table `client`
+-- Indexes for table `clients`
 --
-ALTER TABLE `client`
+ALTER TABLE `clients`
   ADD PRIMARY KEY (`clientno`),
   ADD UNIQUE KEY `clientNo_UNIQUE` (`clientno`),
   ADD UNIQUE KEY `email_UNIQUE` (`email`),
@@ -259,72 +296,143 @@ ALTER TABLE `client`
 --
 ALTER TABLE `messages`
   ADD PRIMARY KEY (`messageid`),
-  ADD KEY `fk_sender_clientno_idx` (`sender`),
-  ADD KEY `fk_reciever_spid` (`receiver`);
+  ADD KEY `fk_message_clientno_idx` (`client_username`),
+  ADD KEY `fk_message_spid_idx` (`sp_username`);
 
 --
--- Indexes for table `service`
+-- Indexes for table `ratings`
 --
-ALTER TABLE `service`
-  ADD PRIMARY KEY (`serviceid`),
-  ADD UNIQUE KEY `ServiceId_UNIQUE` (`serviceid`);
+ALTER TABLE `ratings`
+  ADD PRIMARY KEY (`idrating`),
+  ADD UNIQUE KEY `idrating_UNIQUE` (`idrating`),
+  ADD KEY `fk_rate_clientno_idx` (`clientno`),
+  ADD KEY `fk_rate_spid_idx` (`spid`);
 
 --
--- Indexes for table `serviceprovider`
+-- Indexes for table `reports`
 --
-ALTER TABLE `serviceprovider`
+ALTER TABLE `reports`
+  ADD PRIMARY KEY (`idreport`),
+  ADD UNIQUE KEY `idreport_UNIQUE` (`idreport`),
+  ADD KEY `fk_report_clientno_idx` (`clientno`),
+  ADD KEY `fk_report_spid_idx` (`spid`);
+
+--
+-- Indexes for table `serviceproviders`
+--
+ALTER TABLE `serviceproviders`
   ADD PRIMARY KEY (`spid`),
   ADD UNIQUE KEY `spID_UNIQUE` (`spid`),
   ADD UNIQUE KEY `username_UNIQUE` (`username`),
   ADD UNIQUE KEY `email_UNIQUE` (`email`);
 
 --
--- Indexes for table `spservice`
+-- Indexes for table `services`
 --
-ALTER TABLE `spservice`
+ALTER TABLE `services`
+  ADD PRIMARY KEY (`serviceid`),
+  ADD UNIQUE KEY `ServiceId_UNIQUE` (`serviceid`),
+  ADD KEY `serviceamount_idx` (`serviceamount`);
+
+--
+-- Indexes for table `sp_skills`
+--
+ALTER TABLE `sp_skills`
   ADD KEY `serviceID_idx` (`serviceid`),
-  ADD KEY `spID_idx` (`spid`);
+  ADD KEY `fk_spservice_spid_idx` (`spid`);
 
 --
 -- Indexes for table `transaction`
 --
 ALTER TABLE `transaction`
   ADD PRIMARY KEY (`idtransaction`),
-  ADD KEY `fk_appointmentNo_appointmentNo_idx` (`appointmentno`);
+  ADD KEY `fk_trans_appoint_idx` (`appointmentno`);
 
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `appointments`
+--
+ALTER TABLE `appointments`
+  MODIFY `appointmentno` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `clients`
+--
+ALTER TABLE `clients`
+  MODIFY `clientno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110010;
+--
+-- AUTO_INCREMENT for table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `messageid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `ratings`
+--
+ALTER TABLE `ratings`
+  MODIFY `idrating` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `reports`
+--
+ALTER TABLE `reports`
+  MODIFY `idreport` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `serviceproviders`
+--
+ALTER TABLE `serviceproviders`
+  MODIFY `spid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2225143;
+--
+-- AUTO_INCREMENT for table `transaction`
+--
+ALTER TABLE `transaction`
+  MODIFY `idtransaction` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `appointment`
+-- Constraints for table `appointments`
 --
-ALTER TABLE `appointment`
-  ADD CONSTRAINT `fk_clientno_clientno` FOREIGN KEY (`clientno`) REFERENCES `client` (`clientno`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_serviceid_serviceid` FOREIGN KEY (`serviceid`) REFERENCES `service` (`serviceid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_spid_spid` FOREIGN KEY (`spid`) REFERENCES `serviceprovider` (`spid`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `appointments`
+  ADD CONSTRAINT `fk_amount` FOREIGN KEY (`amount`) REFERENCES `services` (`serviceamount`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_app_client` FOREIGN KEY (`clientno`) REFERENCES `clients` (`clientno`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_app_spid` FOREIGN KEY (`spid`) REFERENCES `serviceproviders` (`spid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_serviceid_serviceid` FOREIGN KEY (`serviceid`) REFERENCES `services` (`serviceid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `messages`
 --
 ALTER TABLE `messages`
-  ADD CONSTRAINT `fk_reciever_clientno` FOREIGN KEY (`receiver`) REFERENCES `client` (`clientno`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_reciever_spid` FOREIGN KEY (`receiver`) REFERENCES `serviceprovider` (`spid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_sender_clientno` FOREIGN KEY (`sender`) REFERENCES `client` (`clientno`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_sender_spid` FOREIGN KEY (`sender`) REFERENCES `serviceprovider` (`spid`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `client_username` FOREIGN KEY (`client_username`) REFERENCES `clients` (`username`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `sp_username` FOREIGN KEY (`sp_username`) REFERENCES `serviceproviders` (`username`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `spservice`
+-- Constraints for table `ratings`
 --
-ALTER TABLE `spservice`
-  ADD CONSTRAINT `fk_serviceid_serviceidsp` FOREIGN KEY (`serviceid`) REFERENCES `service` (`serviceid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_spid_spidsp` FOREIGN KEY (`spid`) REFERENCES `serviceprovider` (`spid`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ratings`
+  ADD CONSTRAINT `fk_rate_clientno` FOREIGN KEY (`clientno`) REFERENCES `clients` (`clientno`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_rate_spid` FOREIGN KEY (`spid`) REFERENCES `serviceproviders` (`spid`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `reports`
+--
+ALTER TABLE `reports`
+  ADD CONSTRAINT `fk_report_clientno` FOREIGN KEY (`clientno`) REFERENCES `clients` (`clientno`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_report_spid` FOREIGN KEY (`spid`) REFERENCES `serviceproviders` (`spid`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `sp_skills`
+--
+ALTER TABLE `sp_skills`
+  ADD CONSTRAINT `fk_skill` FOREIGN KEY (`serviceid`) REFERENCES `services` (`serviceid`),
+  ADD CONSTRAINT `fk_skills_sp` FOREIGN KEY (`spid`) REFERENCES `serviceproviders` (`spid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `transaction`
 --
 ALTER TABLE `transaction`
-  ADD CONSTRAINT `fk_appointmentNo_appointmentNo` FOREIGN KEY (`appointmentno`) REFERENCES `appointment` (`appointmentno`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_trans_appoint` FOREIGN KEY (`appointmentno`) REFERENCES `appointments` (`appointmentno`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
