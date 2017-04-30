@@ -49,6 +49,11 @@ app.listen(port,function(){
 	console.log("App Started on PORT " + port);
 });
 
+// Redirect to login | Home page
+app.get('/',function(req,res){
+	res.redirect("/home");
+});
+
 // login | Home page
 app.get('/home',function(req,res){
 	sess = req.session;
