@@ -1,0 +1,98 @@
+Hair Services
+	Hair Cut
+		(150)Haircut - Cuts your hair with the style that you want
+		(170)Cut with Shampoo - After cutting your hair with style, they wash your hair for you 
+		(150)Child's Haircut - Cuts your hair with the style that you want (10 years and below)
+		(190) with Shampoo and Blow Dry - Make the hair more curly and wavy
+		(150)Flat Iron - Make your hair straight or curly
+		(160)Perms/relaxers - Make your hair curly or straight until new hair grows
+		(200)Bridal up-do/formal style - Make your hair look ready for a formal event
+		(150)Beard Trim - Trims your beard and makes it clean
+		(150)Bang Trim - Trims your bangs and make it shorter so you can see better
+		(250)Deep Conditioner - Conditions dried out hair and moisturizes and strengthens the hair
+		(230)Oil Treatment - Maintains the healthy texture and shine
+		(210)Smoothing Treatment - Makes your hair smooth and shiny
+
+	Color
+		(280)Color Correction - Lighten, darker, or enhance the color of your hair
+		(300)Tint/Touchup - Touch-up your roots and hide grey hair in-between hair coloring
+		(280)Gloss - Makes your hair have a smooth surface and make it shiny
+		(250)Single Process Color - Apply a single color to your hair
+		(350)Double Process Color - Bleaches, tones your hair to get the desired results
+		(350)Full Highlight - Highlights evey side of your hair, the fron and the back
+		(300)Partial Highlight - Enough highlight placed around your face for a brightening or framing effect
+		(280)Lowlights – Lowlights are the opposite of highlights, darker pieces of hair in a base color. This gives the hair more depth.
+		(320)Full Foil – Foil the hair on the entire head, including the underneath sections. 
+		(350)Partial Foil - Foil the hair on the top section of your head.
+		(160)Brows - Colors your eye brows with the chosen color
+		(180)Toning - Tones your hair to a more natural looking hair tone.
+		(200)Color Retouch - Add new details or touches for correction to the color of your hair
+		(320)Dye Back - The process of coloring your hair to its original color
+		(250)Virgin Tint - First time in coloring your hair 
+		(250)Virgin Bleach - First time in bleaching your hair
+
+	Waxing
+		(350)Face
+		(100)Lash and Brow
+		(100)Eye Brow 
+		(100)Lash
+		(100)Lip 
+		(100)Chin 
+		(150)Full Leg
+		(80)Upper Leg
+		(80)Lower Leg
+		(80)Bikini 
+		(150)Upper Leg with Bikini
+		(150)Lower Leg with Bikini
+		(250)Full Leg with Bikini
+		(80)Under Arms
+		(120)Full Arms
+		(80)Lower Arms or Upper Arms
+		(150)Lower Arms + Upper Arms
+		(100)Back
+
+Skin Care
+	(300)Praffin Treatment - The warm paraffin moisturizes for healthier looking, softer skin.
+	(350)Deep Hydrating Facial -  Hydrate and heal skin on a deep level
+	(300)Acne Facial - Antibacterial ingredients are often utilized in a deep cleansing facial to prevent acne breakouts.
+	(250)Spa Facial - Hydrate, protect and help to restore the natural balance of your skin.
+	(320)Alpha Hydroxy Treatment - Removing the top layers of dead skin cells. They can also increase the thickness of deeper layers of skin, promoting firmness.
+	(350)Multivitamin Treatment - This medication is a multivitamin product used to treat or prevent vitamin deficiency
+	(330)Dermaplating Treatment - Shaving of the skin's surface, removing the top-most layer of dead skin along with fine, vellus hair
+	(280)Chemical Peel - A chemical solution is applied to the skin that causes it to exfoliate and eventually peel off.
+	(350)European Facial -  deep cleansing followed by a gentle exfoliation to reveal smooth, glowing skin.
+	
+Message Services
+	(400)Full Body Massage - Inclusive of massages in your back, arms, legs, feet, hands, head, and shoulders
+	(300)Full Facial Massage - For slowing down the aging process and achieve younger looking and healthier skin
+	(200)Foot Massage - Uses hands, fingers, thumbs, knuckles, and a rounded wooden stick with lotion or oil
+	(350)Swedish Massage - Rubbing the muscles with long gliding strokes in the direction of blood returning to the heart
+	(350)Deep Tissue Massage - Deep pressure is applied in releasing chronic muscle tension. The focus is on the deepest layers of muscle tissue, tendons and fascia 
+	(350)Reflexology Massage - A focussed pressure technique, usually directed at the feet or hands. 
+	(350)Reiki Massage - A Japanese technique for stress reduction and relaxation that also promotes healing.
+	(350)Prenatal Massage -  A healthy way to reduce stress and promote overall wellness. Massage relieves many of the normal discomforts experienced during pregnancy.
+	(350)Hot Stone Massage - Melts away tension, eases muscle stiffness and increases circulation and metabolism.
+	(350)Myofasciao Release Massage - A manipulative treatment that attempts to release tension in the fascia due to trauma, posture, or inflammation.
+	(350)Aromatherapy Massage - Making use of essential oils to promote healing and a feeling of well-being and relaxation in the recipient.
+	(350)Microdermabrasion - A massage therapy to diminish fine lines, wrinkles, residual scars and uneven pigmentation with a concentrated mechanical exfoliation using micronized salt crystals.
+
+Hand, Foot and Nail Services
+	(120)Polish Change - Touch up your nails with a fresh coat.
+	(150)Shellac Manicure/Pedicure - A treatment that last longer than regular polish
+	(120)Shellac Removal Only - Removal of shellac manicure 
+ 	(100)Standard Manicure -  A cosmetic beauty treatment for the fingernails and hands
+ 	(100)Standard Pedicure - A cosmetic beauty treatment for the toenails and feet.
+	(180)Hot Oil Manicure -  A luxurious and relaxing treatment of not only pampering your hands but also imparting unparalleled nourishment to your nails and cuticles.
+	(180)French Manicure - Enhances the contrast between the main part of your nail and its tip.
+	(50)Nail Art (per nail) - An art painted in the nails 
+	(150)Spa Manicure/ Pedicure -  Skin exfoliation and a hydrating massage are extended to the elbow for manicures and to the knee for pedicures, which also include a customized foot bath with essential oil.
+	(180)French Polish -  Consists of applying many thin coats of shellac dissolved in alcohol using a rubbing pad lubricated with oil.
+	(180)UV Gel - UV coated Gel nail polish is applied to the nail for ultraviolet light protection. - 
+
+Make-Up Services
+	(80)Make-Up - Aesthetically enhance the look of a person for a special event or regular day 
+	(80)Eyes only - To apply eye makeup chosen and blended with her skin and eye color
+	(80)Airbrush Base Only - A makeup sprayed onto the skin using an airbrush
+	(80)Lashes - Darken, thicken, legthen the eye lash
+	(80)Lower -  Apply makeup on the lower part of the face
+	(150)Full (eyebrows, lip, and chin)
