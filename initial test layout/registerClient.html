@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BxB</title>
+    
+    <link rel="stylesheet" type="text/css" href="css/foundation.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+</head>
+<body>
+    <nav class="top-bar">
+      <div class="top-bar-title">
+        <a href="index.html"><img src="images/logo.png"><span>B</span>eauty <span>x</span> <span>B</span>east</a>
+      </div>
+      <div id="responsive-menu">
+        <div class="top-bar-right">
+          <ul class="menu" >
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+            <li><a href="aboutus.hmtl">About us</a></li>
+            <li><a data-open="login">Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <div class="reveal tiny" id="login" data-reveal>
+      <div class="row">
+        <form id="authentication" data-abide novalidate>
+          <div class="alert callout" data-abide-error style="display: none">
+             <p><i class="fi-alert"></i> There are some errors in your form.</p>
+          </div>
+          
+          <label>Username
+            <input type="text" required>
+            <span class="form-error">
+                This field is required!
+              </span>
+          </label>
+          <label>Password
+            <input type="password" aria-describedby="passwordHelpText" required>
+            <span class="form-error">
+                This field is required
+            </span>
+          </label>
+          <p class="help-text" id="passwordHelpText">Your password must have at least 10 characters</p>
+          <p class="help-text"><a data-open="register">Don't have account yet? Register now</a></p>
+          <br>
+          <div class="columns large-12">
+            <button class="button expanded" type="login" value="Login">Login</button>
+          </div>
+        </form>
+  
+      </div>
+  </div>
+
+    <div class="row">
+      <div class="columns large-8 large-offset-2" id="register-content">
+      	<div class="columns large-10 large-offset-1">
+      		<form data-abide novalidate id="registration">
+		        <div class="alert callout" data-abide-error style="display: none">
+		           <p><i class="fi-alert"></i> There are some errors in your form.</p>
+		        </div>
+		        
+		        <h2 class="text-center">Client Registration</h2>
+	          <label>First Name
+	            <input type="text" required>
+	            <span class="form-error">
+	              This field is required!
+	            </span>
+	          </label>
+	          <label>Last Name
+	            <input type="text" required>
+	            <span class="form-error">
+	              This field is required!
+	            </span>
+	          </label>
+	          <label>Email
+	            <input type="text" required pattern="email">
+	             <span class="form-error">
+	              Must enter a legit email
+	            </span>
+	          </label>
+	          <label>Username
+	            <input type="text" required pattern="alpha_numeric">
+	             <span class="form-error">
+	              I'm required!
+	            </span>
+	          </label>
+	        
+	          <label>Birthday
+	            <input type="date" required pattern="date">
+	             <span class="form-error">
+	              I'm required!
+	            </span>
+	          </label>
+	          <label>Contact Number
+	            <input type="text" name="" required pattern="number">
+	             <span class="form-error">
+	              input must be numeric
+	            </span>
+	          </label>
+	          <label>Password
+	            <input type="password" aria-describedby="passwordHelpText" required pattern="alpha_numeric" id="password">
+	             <span class="form-error">
+	              I'm required!
+            </span>
+	          </label>
+	          <label>Re-enter Password
+	            <input type="password" aria-describedby="passwordHelpText" required pattern="alpha_numeric" data-equalto="password">
+	             <span class="form-error">
+	              not the same as password
+	            </span>
+	          </label>
+		        <br>
+		        <div class="columns large-12 text-center">
+		          <input id="checkbox1" type="checkbox" required><label for="checkbox1"><span class="form-error">
+		              You must agree with our terms and condition
+		            </span>Agree with our terms and agreement</label><br>
+		          <button class="button" type="register" value="Register">Register</button>
+		        </div>
+	     	 	</form>
+	      </div>
+      </div>
+    </div>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+		</body>
+</html>

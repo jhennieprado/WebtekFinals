@@ -1,0 +1,164 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BxB</title>
+    
+    <link rel="stylesheet" type="text/css" href="css/foundation.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    
+  </head>
+  <body>
+    <!--TOP Navigation-->
+    <nav class="top-bar">
+      <div class="top-bar-title">
+        <a href="index.html"><img src="images/logo.png"><span>B</span>eauty <span>x</span> <span>B</span>east</a>
+      </div>
+      <div id="responsive-menu">
+        <div class="top-bar-right">
+          <ul class="menu" >
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+            <li><a href="aboutus.hmtl">About us</a></li>
+            <li><a data-open="login">Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <!--Modal Login-->
+
+  <div class="reveal tiny " id="login" data-reveal>
+      <div class="row">
+        <form id="authentication" data-abide novalidate>
+          <div class="alert callout" data-abide-error style="display: none">
+             <p><i class="fi-alert"></i> There are some errors in your form.</p>
+          </div>
+          
+          <label>Username
+            <input type="text" required>
+            <span class="form-error">
+                This field is required!
+              </span>
+          </label>
+          <label>Password
+            <input type="password" aria-describedby="passwordHelpText" required>
+            <span class="form-error">
+                This field is required
+            </span>
+          </label>
+          <p class="help-text" id="passwordHelpText">Your password must have at least 10 characters</p>
+          <p class="help-text"><a href="registerclient.html">Don't have account yet? Register now</a></p>
+          <br>
+          <div class="columns large-12">
+            <button class="button expanded" type="login" value="Login">Login</button>
+          </div>
+        </form>
+  
+      </div>
+  </div>
+
+
+
+  <!--Modal end-->
+    <!-- front -->
+    <section id="landing">
+      <div class="row ">
+        <div class="columns large-5 large-offset-1 content">
+          <ul class="no-bullet">
+            <li>
+              <h4>Welcome</h4>
+            </li>
+            <li>
+              We are an organization that handles catering of salon services through home service.
+            </li>
+            <li>
+              Isn't that great? 
+              sarcasm kicks in the longer i work on this.
+            </li>
+            <h4>We offer Services that are</h4>
+            <div class="row">
+              <div class="columns large-6">
+                
+                <ul>
+                  <li>Quality</li>
+                  <li>Reliable</li>
+                  <li>Assurable?s</li>
+                </ul>
+              </div>
+              <div class="columns large-6">
+                <ul>
+                  <li>more traits</li>
+                  <li>Reliable</li>
+                  <li>safe?</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="columns large-6">
+                <h4>No Account Yet? <br>Register Now</h4>
+              </div>
+              <div class="columns large-6">
+                <h4>Be a Service Provider</h4>
+              </div>
+            </div>
+          </ul>
+        </div>
+        </div>
+      </div>
+    </section>
+    <div class="row" id="option">
+      <div class="columns large-4">
+        <div class="card">
+          <div class="card-divider text-center"><span>Spotlight 1</span></div>
+          <img src="images/ph.png">
+          <div class="card-section">
+            <p>lorem ipsum dolorom ehh put service description here most likely.</p>
+          </div>
+        </div>
+      </div>
+      <div class="columns large-4">
+        <div class="card">
+          <div class="card-divider text-center"><span>Register an Account</span></div>
+          <img src="images/ph.png">
+          <div class="card-section">
+            <p>lorem ipsum dolorom ehh put service description here most likely.</p>
+          </div>
+        </div>
+      </div>
+      <div class="columns large-4">
+        <div class="card">
+          <div class="card-divider text-center"><span>Avail our Home Services</span></div>
+          <img src="images/ph.png">
+          <div class="card-section">
+            <p>lorem ipsum dolorom ehh put service description here most likely.</p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+    <footer>
+      <div class="row">
+        <div class="columns large-4 large-offset-2">
+          Copyright
+        </div>
+        <div class="columns large-6">
+          <ul class="menu simple">
+            <li>link 1</li>
+            <li>link 2</li>
+            <li>link 3</li>
+            <li>link 4</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

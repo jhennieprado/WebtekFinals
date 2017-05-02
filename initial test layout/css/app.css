@@ -1,0 +1,137 @@
+body{
+	background-image: url('../images/bg2.png');
+	background-repeat:;
+	overflow-x: hidden;
+}
+footer{
+	background-color: lightgrey;
+	padding: 2vh 0;
+}
+.top-bar-title{
+	font-size:2em;
+	padding: 0rem;
+	padding-left: 2vw;
+	font-weight: bold;
+}
+
+.top-bar-title a:visited{
+	color: #404040;}
+
+.top-bar-title span{
+	padding:0px;
+	color: hotpink;
+}
+
+.top-bar-title span:nth-child(2){
+	padding:0px;
+}
+.top-bar-title img{
+	width:3vw;
+}
+		
+
+
+#landing{
+	background-color:black;				
+	height: 60vh;
+	width: 100vw;
+	margin:0 auto;
+}
+
+
+#landing > .content{
+	padding:5vh 0;
+	background-color: #d3d3d3;
+}
+
+.content{
+	background-color: lightgray;
+	margin-top:30px;
+	border-radius: 30px;
+	padding: 20px;
+}
+
+.content h4{
+	color: #535353;
+	font-weight: bolder;
+}
+
+#option{
+	margin-top: 30px;
+}
+.sub-nav{
+	background-color:#b3b3b3;
+	font-size: 0.75em;
+}
+
+.sub-nav ul{
+	padding: 5px 0;
+}			
+
+.sub-nav a{
+	color: white;
+}
+#option img{
+	height: 200px;
+	width: 100vw;
+}
+
+#services img{
+	height: 100px;
+	width: 100px;
+}
+
+#services{
+	margin-top: 30px;
+	border-radius:20px;
+	background-color: #d3d3d3;
+	
+}
+
+#services .row{
+	padding: 0;
+	margin:0;
+	min-width: 100vw;
+}
+
+#login{
+	border-radius: 30px;
+}
+
+#option{
+	margin-top:5vh;
+	border-radius: 20px;
+}
+
+#option .card{
+	border-radius: 20px;
+	box-shadow: 0px 2px 5px #c3c3c3;
+}
+
+#option span{
+	font-size:1.5em;
+}
+/*work on this shit*/
+
+
+#register-content{
+	background-color: #d3d3d3;
+	margin-top: 5vh;
+	padding-top: 30px;
+	border-radius: 20px;
+}
+
+#register-content h2{
+	margin-bottom: 30px;
+}
+
+#admin-login{
+	margin-top: 10vh;
+	background-color: #d3d3d3;
+	padding: 5vh 5vw;
+	border-radius:30px;
+}
+
+#admin-login img{
+	width: 10vw;
+}
