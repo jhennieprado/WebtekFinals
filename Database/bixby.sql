@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2017 at 10:59 PM
+-- Generation Time: May 03, 2017 at 01:50 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -28,13 +28,15 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `appointments` (
   `appointmentno` int(11) NOT NULL,
-  `address` varchar(160) NOT NULL,
-  `daterequest` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `sp_schedid` int(11) NOT NULL,
   `dateofservice` date NOT NULL,
+  `daterequest` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `address` varchar(160) NOT NULL,
   `amount` float NOT NULL,
   `clientno` int(11) NOT NULL,
   `spid` int(11) NOT NULL,
-  `serviceid` int(11) NOT NULL
+  `serviceid` int(11) NOT NULL,
+  `status` enum('request','accepted','rejected','done') NOT NULL DEFAULT 'request'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -70,7 +72,8 @@ INSERT INTO `clients` (`clientno`, `first_name`, `last_name`, `birthdate`, `emai
 (110005, 'Norma', 'Castro', '1990-01-03', 'NormaCastro77@yahoo.com', 'NormaCastro', 'cas456tro', '09081904216', '#22 Bonifacio St., Baguio City', '2017-04-27 15:35:50', 'Y', NULL),
 (110006, 'Katie', 'Fuller', '1991-10-19', 'katfuller@gmail.com', 'Kat', '1991kabnm', '09184686141', 'Water Station Heaven Rd., BC', '2017-04-27 15:41:30', 'Y', NULL),
 (110007, 'Rex', 'Scott', '1989-11-16', 'rex256@gmail.com', 'RexS', 'yuio567', '09774978637', 'Ang River, Sa Tubig City', '2017-04-27 15:41:30', 'Y', NULL),
-(110009, 'Lynda', 'Riley', '1975-06-08', 'LynRil@gmail.com', 'Lynda', 'ril678da', '09288036814', 'Pels stop St., Last One Bldg, BC', '2017-04-27 15:35:18', 'Y', NULL);
+(110009, 'Lynda', 'Riley', '1975-06-08', 'LynRil@gmail.com', 'Lynda', 'ril678da', '09288036814', 'Pels stop St., Last One Bldg, BC', '2017-04-27 15:35:18', 'Y', NULL),
+(110010, 'Alden', 'Samson', '2002-02-02', 'quack@quk.com', '2150804', '123asd', '09412215644', 'Banal Ata St., Gotham City', '2017-05-01 02:46:33', 'N', NULL);
 
 -- --------------------------------------------------------
 
@@ -86,6 +89,19 @@ CREATE TABLE `messages` (
   `sp_username` varchar(45) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`messageid`, `sender_username`, `message`, `client_username`, `sp_username`, `timestamp`) VALUES
+(4, '2150804', 'sdzxcxzc', '2150804', 'Thomas', '2017-05-02 04:32:47'),
+(5, '2150804', 'hello', '2150804', 'Thomas', '2017-05-02 04:32:56'),
+(6, '2150804', 'hello', '2150804', 'Thomas', '2017-05-02 04:38:27'),
+(7, '2150804', '5 second delay', '2150804', 'Thomas', '2017-05-02 04:38:54'),
+(8, '2150804', 'lol', '2150804', 'JessieLee', '2017-05-02 04:39:44'),
+(9, '2150804', 'message', '2150804', 'angel', '2017-05-02 07:10:24'),
+(10, '2150804', 'hello', '2150804', 'Thomas', '2017-05-02 08:12:33');
 
 -- --------------------------------------------------------
 
@@ -126,19 +142,6 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reports`
---
-
-CREATE TABLE `reports` (
-  `idreport` int(11) NOT NULL,
-  `clientno` int(11) NOT NULL,
-  `spid` int(11) NOT NULL,
-  `reportmessage` varchar(160) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `serviceproviders`
 --
 
@@ -168,6 +171,21 @@ INSERT INTO `serviceproviders` (`spid`, `first_name`, `last_name`, `email`, `con
 (220582, 'Angelica', 'Sherman', 'angel67@gmail.com', '09265751126', 'angel', 'sherang546', 'Y', 5, NULL),
 (224695, 'Gerard', 'West', 'GW67@gmail.com', '09282713478', 'GW', '67drareg', 'N', 0, NULL),
 (226482, 'May', 'Ellis', 'ellismay@yahoo.com', '09499251352', 'Maye', '1983may', 'Y', 5, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `serviceprovider_schedules`
+--
+
+CREATE TABLE `serviceprovider_schedules` (
+  `schedid` int(11) NOT NULL,
+  `spid` int(11) NOT NULL,
+  `day_available` varchar(3) NOT NULL,
+  `start_time` time NOT NULL,
+  `end_time` time NOT NULL,
+  `vacant` enum('yes','no') NOT NULL DEFAULT 'yes'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -264,19 +282,6 @@ INSERT INTO `sp_skills` (`spid`, `serviceid`) VALUES
 (226482, 224),
 (226482, 225);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `transaction`
---
-
-CREATE TABLE `transaction` (
-  `idtransaction` int(11) NOT NULL,
-  `transdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `appointmentno` int(11) NOT NULL,
-  `status` enum('Paid','Pending') NOT NULL DEFAULT 'Pending'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 --
 -- Indexes for dumped tables
 --
@@ -290,7 +295,8 @@ ALTER TABLE `appointments`
   ADD KEY `serviceID_idx` (`serviceid`),
   ADD KEY `fk_amount_serviceamount_idx` (`amount`),
   ADD KEY `fk_app_client_idx` (`clientno`),
-  ADD KEY `fk_app_spid_idx` (`spid`);
+  ADD KEY `fk_app_spid_idx` (`spid`),
+  ADD KEY `sp_schedid` (`sp_schedid`);
 
 --
 -- Indexes for table `clients`
@@ -319,15 +325,6 @@ ALTER TABLE `ratings`
   ADD KEY `fk_rate_spid_idx` (`spid`);
 
 --
--- Indexes for table `reports`
---
-ALTER TABLE `reports`
-  ADD PRIMARY KEY (`idreport`),
-  ADD UNIQUE KEY `idreport_UNIQUE` (`idreport`),
-  ADD KEY `fk_report_clientno_idx` (`clientno`),
-  ADD KEY `fk_report_spid_idx` (`spid`);
-
---
 -- Indexes for table `serviceproviders`
 --
 ALTER TABLE `serviceproviders`
@@ -335,6 +332,14 @@ ALTER TABLE `serviceproviders`
   ADD UNIQUE KEY `spID_UNIQUE` (`spid`),
   ADD UNIQUE KEY `username_UNIQUE` (`username`),
   ADD UNIQUE KEY `email_UNIQUE` (`email`);
+
+--
+-- Indexes for table `serviceprovider_schedules`
+--
+ALTER TABLE `serviceprovider_schedules`
+  ADD PRIMARY KEY (`schedid`),
+  ADD KEY `serviceID_idx` (`schedid`),
+  ADD KEY `fk_spservice_spid_idx` (`spid`);
 
 --
 -- Indexes for table `services`
@@ -352,13 +357,6 @@ ALTER TABLE `sp_skills`
   ADD KEY `fk_spservice_spid_idx` (`spid`);
 
 --
--- Indexes for table `transaction`
---
-ALTER TABLE `transaction`
-  ADD PRIMARY KEY (`idtransaction`),
-  ADD KEY `fk_trans_appoint_idx` (`appointmentno`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -371,32 +369,32 @@ ALTER TABLE `appointments`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `clientno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110010;
+  MODIFY `clientno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110011;
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `messageid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `messageid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `ratings`
 --
 ALTER TABLE `ratings`
-  MODIFY `idrating` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
---
--- AUTO_INCREMENT for table `reports`
---
-ALTER TABLE `reports`
-  MODIFY `idreport` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idrating` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `serviceproviders`
 --
 ALTER TABLE `serviceproviders`
-  MODIFY `spid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2225146;
+  MODIFY `spid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=226483;
 --
--- AUTO_INCREMENT for table `transaction`
+-- AUTO_INCREMENT for table `serviceprovider_schedules`
 --
-ALTER TABLE `transaction`
-  MODIFY `idtransaction` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `serviceprovider_schedules`
+  MODIFY `schedid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+--
+-- AUTO_INCREMENT for table `services`
+--
+ALTER TABLE `services`
+  MODIFY `serviceid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=226;
 --
 -- Constraints for dumped tables
 --
@@ -408,14 +406,15 @@ ALTER TABLE `appointments`
   ADD CONSTRAINT `fk_amount` FOREIGN KEY (`amount`) REFERENCES `services` (`serviceamount`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_app_client` FOREIGN KEY (`clientno`) REFERENCES `clients` (`clientno`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_app_spid` FOREIGN KEY (`spid`) REFERENCES `serviceproviders` (`spid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_serviceid_serviceid` FOREIGN KEY (`serviceid`) REFERENCES `services` (`serviceid`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_service` FOREIGN KEY (`serviceid`) REFERENCES `services` (`serviceid`),
+  ADD CONSTRAINT `sched_fk` FOREIGN KEY (`sp_schedid`) REFERENCES `serviceprovider_schedules` (`schedid`);
 
 --
 -- Constraints for table `messages`
 --
 ALTER TABLE `messages`
-  ADD CONSTRAINT `client_username` FOREIGN KEY (`client_username`) REFERENCES `clients` (`username`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `sp_username` FOREIGN KEY (`sp_username`) REFERENCES `serviceproviders` (`username`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `client_username` FOREIGN KEY (`client_username`) REFERENCES `clients` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `sp_username` FOREIGN KEY (`sp_username`) REFERENCES `serviceproviders` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ratings`
@@ -425,11 +424,10 @@ ALTER TABLE `ratings`
   ADD CONSTRAINT `fk_rate_spid` FOREIGN KEY (`spid`) REFERENCES `serviceproviders` (`spid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `reports`
+-- Constraints for table `serviceprovider_schedules`
 --
-ALTER TABLE `reports`
-  ADD CONSTRAINT `fk_report_clientno` FOREIGN KEY (`clientno`) REFERENCES `clients` (`clientno`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_report_spid` FOREIGN KEY (`spid`) REFERENCES `serviceproviders` (`spid`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `serviceprovider_schedules`
+  ADD CONSTRAINT `sp_fk` FOREIGN KEY (`spid`) REFERENCES `serviceproviders` (`spid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `sp_skills`
@@ -437,12 +435,6 @@ ALTER TABLE `reports`
 ALTER TABLE `sp_skills`
   ADD CONSTRAINT `fk_skill` FOREIGN KEY (`serviceid`) REFERENCES `services` (`serviceid`),
   ADD CONSTRAINT `fk_skills_sp` FOREIGN KEY (`spid`) REFERENCES `serviceproviders` (`spid`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `transaction`
---
-ALTER TABLE `transaction`
-  ADD CONSTRAINT `fk_trans_appoint` FOREIGN KEY (`appointmentno`) REFERENCES `appointments` (`appointmentno`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
