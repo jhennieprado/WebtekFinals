@@ -29,7 +29,9 @@ then done
 to assemble the template
 change the directory to the newly created template
 enter
+
 foundation watch
+
 //output
 > foundation-sites-template@1.0.0 start C:\Users\User\Documents\GitHub\BxB
 > gulp
