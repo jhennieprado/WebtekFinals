@@ -5,28 +5,35 @@ Setting up Foundation CSS framework
 		-more customizable than the default package
 
 Application needed
+
 nodeJS - serves as a build file for foundation
+
 Ruby - SASS compiler
 
 how to install through cli
+
 https://github.com/zurb/foundation-cli
+
 open git bash and enter this commands
+
 npm install -g gulp bower;
+
 npm install -g foundation-cli //adds foundation commands on your system
 
 foundation -v //to check if foundation is successfully installed
 
 Creating Template for Website
+
 go to the directory where you want to save the website (example desktop)
+
 on git bash, go to the directory and enter
+
 foundation new //creates the template and will prompt you what settings will be needed for the website
-	//website
-	//enter project name
-	//basic template
 
 then done
 
 to assemble the template
+
 change the directory to the newly created template
 enter
 
