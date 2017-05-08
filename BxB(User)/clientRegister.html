@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty x Beast</title>
+    
+    <link rel="stylesheet" type="text/css" href="css/foundation.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <style type="text/css">
+    	.hide{
+    		display:hidden;
+    	}
+    	.show{
+    		display:block;
+    	}
+    </style>
+</head>
+<body id="clientregister">
+  <div class="row">
+    <div class="columns large-10 large-offset-1" id="register">
+      <div class="row">
+        <div class="columns large-4 large-offset-4 text-center"><img src="images/logo2.png"></div>
+      </div>
+  		<form data-abide novalidate id="registration">
+       
+        <div class="row">
+          <div class="columns large-5 large-offset-1"><h2>Client Registration</h2></div>
+          
+        </div>
+
+        <div class="row">
+          <div class="columns large-10 large-offset-1">
+            <div class="alert callout" data-abide-error style="display: none">
+             <p><i class="fi-alert"></i> There are some errors in your form.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">  
+          <div class="columns large-5 large-offset-1">
+	          <label id="firstName">First Name
+	            <input type="text" required>
+	          </label>
+	          <label>Last Name
+	            <input type="text" required>
+	          </label>
+	          <label>Email
+	            <input type="text" required pattern="email">
+	          </label>
+	          <label>Username
+	            <input type="text" required pattern="alpha_numeric">
+	          </label>
+	        </div>
+          <div class="columns large-5 ">
+	          <label>Birthday
+	            <input type="date" required pattern="date">
+	          </label>
+	          <label>Contact Number
+	            <input type="text" name="" required pattern="number">
+	          </label>
+	          <label>Password
+	            <input type="password" aria-describedby="passwordHelpText" required pattern="alpha_numeric" id="password">
+	          </label>
+	          <label>Re-enter Password
+	            <input type="password" aria-describedby="passwordHelpText" required pattern="alpha_numeric" data-equalto="password">
+	          </label>
+          </div>
+		        <br>
+		        <div class="columns large-12 text-center">
+		          <input id="checkbox1" type="checkbox" required><label for="checkbox1"><span class="form-error">
+		              You must agree with our terms and condition
+		            </span>Agree with our terms and agreement</label><br>
+
+		          <button class="button" type="register" value="Register">Register</button>
+		        </div>
+        </div>
+   	 	</form>
+    </div>
+  </div>
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/vendor/what-input.js"></script>
+  <script src="js/vendor/foundation.js"></script>
+  <script src="js/app.js"></script>
+	</body>
+</html>

@@ -1,0 +1,234 @@
+@font-face {
+	font-family: mont;
+  src: url(../fonts/Montserrat-Regular.otf);
+}
+
+@font-face {
+	font-family: rob;
+  src: url(../fonts/RobotoCondensed-Regular.ttf);
+}
+
+
+nav, header, footer {
+	font-family: mont;
+}
+#clientregister, #clientlogin{
+	background-image: url('../images/bg2.png');
+	background-repeat:repeat;
+	overflow-x: hidden;
+}
+
+body{
+	background-image: url("images/df.jpg");
+}
+footer{
+	background-color: $dark-gray;
+	padding: 2vh 0;
+	a{
+		color:$medium-light-gray;
+	}
+	a:visited{
+		color:$medium-light-gray;
+	}
+	a:hover{
+		color:$white;
+	}
+
+	a:first-child{
+		padding-left:0;
+	}
+}
+.top-bar{
+	margin-bottom: 2px black solid;
+	li{
+		text-transform: uppercase;
+		a:link{
+			color:#c9c9c9;
+		}
+		a:visited{
+			color:#c9c9c9;
+		}
+		a:hover{
+			color:$light-gray;
+		}
+		a.current{
+			color:$light-gray;
+			border-bottom: 3px solid $white;
+		}
+	}
+}
+
+.top-bar-title{
+	font-size:2em;
+	padding: 0rem;
+	padding-left: 2vw;
+	font-weight: bold;
+  a:visited{
+  	color: $white;}
+  a:link{
+  	color: $white;}
+  span{
+  	padding:0px;
+  	color: hotpink;
+  }
+  span:nth-child(2){
+    padding:0px;
+  }
+  img{
+    width:5vw;
+    margin-right: 2vw;
+  }
+}
+
+.card {
+	img{
+		width: 100vw;
+		height: 100px;
+	}
+}
+
+main{
+	padding-bottom:5vh;
+	h1{
+		margin: 2vh 0;
+	}
+}
+
+.catalog-header{
+	background-color: $medium-light-gray;
+	h1{
+		padding: 2vh 0;
+	}
+	bottom-border: 3px solid $black;
+}
+
+.card{
+  a:link{
+  	color:black;
+  }
+  a:visited{
+  	color:black;
+  }
+}
+
+.row{
+	.catalog{
+		margin-top: 5vh;
+		background-color: $medium-gray;
+		padding: 20px;
+
+	}
+}
+
+
+#login{
+	border-radius: 30px;
+}
+
+#option{
+	margin-top:5vh;
+	border-radius: 20px;
+  .card{
+  	border-radius: 20px;
+  	box-shadow: 0px 2px 5px #c3c3c3;
+  }
+}
+
+#register{
+	background-color: #CACACA;
+	margin-top: 5vh;
+	padding-top: 30px;
+	border-radius: 10px;
+  h2{
+  	margin-bottom: 30px;
+  }
+}
+
+
+
+#admin-login{
+	margin-top: 10vh;
+	background-color: #d3d3d3;
+	padding: 5vh 5vw;
+	border-radius:30px;
+  img{
+  	width: 10vw;
+  }
+}
+
+
+
+#serviceProfHead{
+	background-color: #3E3E3E;
+	padding: 2vh 0;
+	color:$white;
+
+	img{
+  	width: 10vw;
+  	padding:3vw;
+  }
+	.column {
+		padding:0 ;
+		span:first-child{
+			font-size: 2em;
+		}
+		span:nth-child(2){
+			margin-bottom:2vh;
+		}
+	}
+}
+
+#serviceProfDet{
+	margin-top:5vh;
+	.column:first-child > {
+		span{
+			font-size:1.5em;
+			display:block;
+			padding-bottom: 1vh;
+			font-weight: bold;
+		}
+		ul{
+			span{
+				font-weight: bold;
+				font-size: 1.10em;
+			}
+		}
+	}
+	.row{
+		.column{
+			img{
+				width:75px;
+			}
+		}
+	}
+}
+
+#profReview{
+	span{
+		font-size:1.25em
+	}
+	ul{
+		li{
+			margin: 2vh 0;
+			display:block;
+		}
+	}
+}
+
+.reviewCont{
+	border-top: 2px solid $dark-gray;
+	.reviewHead{
+		span:first-child{
+			text-align:left;
+		}
+		span:last-child{
+			float:right;
+		}
+	}
+	.reviewDesc{
+		p{
+			padding-left:1vw;
+		}
+
+	}
+}
