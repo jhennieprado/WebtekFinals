@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2017 at 01:36 PM
+-- Generation Time: May 11, 2017 at 11:26 AM
 -- Server version: 5.7.11
 -- PHP Version: 5.6.19
 
@@ -42,7 +42,6 @@ CREATE TABLE `appointments` (
 --
 
 INSERT INTO `appointments` (`appointmentno`, `sp_schedid`, `daterequest`, `clientno`, `spid`, `serviceid`, `status`, `rating`) VALUES
-(8, 18, '2017-05-10 13:15:37', 110012, 226484, 227, 'done', 0),
 (9, 18, '2017-05-10 13:17:59', 110012, 226484, 227, 'request', 0);
 
 --
@@ -69,6 +68,10 @@ $$
 DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `add_notif_sp` BEFORE INSERT ON `appointments` FOR EACH ROW INSERT INTO `notify_sp` (`receiver`, `clientno` , `notifmessage`, `status`) VALUES (NEW.spid, NEW.clientno, CONCAT((SELECT first_name from clients WHERE NEW.clientno = clients.clientno),(SELECT last_name from clients WHERE NEW.clientno = clients.clientno)," has made an appointment"), 'Unread')
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `cancel_notif` BEFORE DELETE ON `appointments` FOR EACH ROW INSERT INTO `notify_sp` (`receiver`, `clientno` , `notifmessage`, `status`) VALUES (OLD.spid, OLD.clientno, CONCAT((SELECT first_name from clients WHERE OLD.clientno = clients.clientno),(SELECT last_name from clients WHERE OLD.clientno = clients.clientno)," has cancelled your ", OLD.daterequest, " appointmenmt."), 'Unread')
 $$
 DELIMITER ;
 DELIMITER $$
@@ -162,7 +165,7 @@ CREATE TABLE `notify_sp` (
   `notifspid` int(11) NOT NULL,
   `receiver` int(11) NOT NULL,
   `clientno` int(11) NOT NULL,
-  `notifmessage` varchar(50) NOT NULL,
+  `notifmessage` varchar(100) NOT NULL,
   `status` enum('Read','Unread') NOT NULL DEFAULT 'Unread'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -171,7 +174,8 @@ CREATE TABLE `notify_sp` (
 --
 
 INSERT INTO `notify_sp` (`notifspid`, `receiver`, `clientno`, `notifmessage`, `status`) VALUES
-(4, 226484, 110012, 'awdawdawdawd has made an appointment', 'Unread');
+(4, 226484, 110012, 'awdawdawdawd has made an appointment', 'Unread'),
+(5, 226484, 110012, 'awdawdawdawd has cancelled your 2017-05-10 21:15:37 appointmenmt.', 'Unread');
 
 -- --------------------------------------------------------
 
