@@ -1,0 +1,28 @@
+<?php
+	include('connection.php');
+
+
+	$query = "SELECT * from appointments where status = 'accepted' ";
+	$result = mysqli_query($conn, $query);
+	
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Client Accepted</title>
+</head>
+<body>
+<table cellpadding="5" cellspacing="5">
+<?php while ($row = mysqli_fetch_array($result)) {?>
+		<tr>
+			<td><?php echo $row['status']; ?></td>
+			<td><?php echo $row['daterequest']; ?></td>
+			<td><?php echo $row['address']; ?></td>
+			<td><?php echo $row['clientno']; ?></td>
+		</tr>
+
+		<?php } ?>
+</table>
+</body>
+</html>
