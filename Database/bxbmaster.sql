@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
--- https://www.phpmyadmin.net/
+-- version 4.5.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2017 at 12:17 PM
--- Server version: 5.7.14
--- PHP Version: 5.6.25
+-- Generation Time: May 11, 2017 at 12:41 PM
+-- Server version: 5.7.11
+-- PHP Version: 5.6.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bxbmaster`
+-- Database: `bxbfin`
 --
 
 -- --------------------------------------------------------
@@ -52,19 +52,19 @@ CREATE TRIGGER `add_notif_client` AFTER UPDATE ON `appointments` FOR EACH ROW BE
 	IF NEW.status = 'accepted' THEN
 		INSERT INTO `notify_client` (`receiver`, `spid` , `notifmessage`, `status`) VALUES ( OLD.clientno, OLD.spid, CONCAT((SELECT first_name from serviceproviders WHERE NEW.spid = serviceproviders.spid)," ",(SELECT last_name from serviceproviders WHERE NEW.spid = serviceproviders.spid)," has accepted your request"), 'Unread');
     ELSEIF NEW.status = 'done' THEN
-		INSERT INTO `notify_client` (`receiver`, `spid` , `notifmessage`, `status`) VALUES (OLD.clientno, OLD.spid, CONCAT((SELECT first_name from serviceproviders WHERE NEW.spid = serviceproviders.spid)," ",(SELECT last_name from serviceproviders WHERE NEW.spid = serviceproviders.spid)," has marked your ", OLD.daterequest," appointment done"), 'Unread');
+		INSERT INTO `notify_client` (`receiver`, `spid` , `notifmessage`, `status`) VALUES (OLD.clientno, OLD.spid, CONCAT((SELECT first_name from serviceproviders WHERE NEW.spid = serviceproviders.spid)," ",(SELECT last_name from serviceproviders WHERE NEW.spid = serviceproviders.spid)," has marked your ", (SELECT servicename from services WHERE OLD.serviceid = services.serviceid)," appointment done"), 'Unread');
     ELSEIF NEW.status = 'rejected' THEN
-		INSERT INTO `notify_client` (`receiver`, `spid` , `notifmessage`, `status`) VALUES ( OLD.clientno, OLD.spid, CONCAT((SELECT first_name from serviceproviders WHERE NEW.spid = serviceproviders.spid)," ",(SELECT last_name from serviceproviders WHERE NEW.spid = serviceproviders.spid)," has rejected your ", OLD.daterequest," request"), 'Unread');
+		INSERT INTO `notify_client` (`receiver`, `spid` , `notifmessage`, `status`) VALUES ( OLD.clientno, OLD.spid, CONCAT((SELECT first_name from serviceproviders WHERE NEW.spid = serviceproviders.spid)," ",(SELECT last_name from serviceproviders WHERE NEW.spid = serviceproviders.spid)," has rejected your ", (SELECT servicename from services WHERE OLD.serviceid = services.serviceid)," request"), 'Unread');
 	END IF;
 END
 $$
 DELIMITER ;
 DELIMITER $$
-CREATE TRIGGER `add_notif_sp` BEFORE INSERT ON `appointments` FOR EACH ROW INSERT INTO `notify_sp` (`receiver`, `clientno` , `notifmessage`, `status`) VALUES (NEW.spid, NEW.clientno, CONCAT((SELECT first_name from clients WHERE NEW.clientno = clients.clientno)," ",(SELECT last_name from clients WHERE NEW.clientno = clients.clientno)," has made an appointment"), 'Unread')
+CREATE TRIGGER `add_notif_sp` BEFORE INSERT ON `appointments` FOR EACH ROW INSERT INTO `notify_sp` (`receiver`, `clientno` , `notifmessage`, `status`) VALUES (NEW.spid, NEW.clientno, CONCAT((SELECT first_name from clients WHERE NEW.clientno = clients.clientno)," ",(SELECT last_name from clients WHERE NEW.clientno = clients.clientno)," has made a/an ", (SELECT servicename from services WHERE NEW.serviceid = services.serviceid)," appointment"), 'Unread')
 $$
 DELIMITER ;
 DELIMITER $$
-CREATE TRIGGER `notify_cancelled` BEFORE DELETE ON `appointments` FOR EACH ROW INSERT INTO `notify_sp` (`receiver`, `clientno` , `notifmessage`, `status`) VALUES (OLD.spid, OLD.clientno, CONCAT((SELECT first_name from clients WHERE OLD.clientno = clients.clientno),(SELECT last_name from clients WHERE OLD.clientno = clients.clientno)," has cancelled your ", OLD.daterequest, " appointmenmt."), 'Unread')
+CREATE TRIGGER `notify_cancelled` BEFORE DELETE ON `appointments` FOR EACH ROW INSERT INTO `notify_sp` (`receiver`, `clientno` , `notifmessage`, `status`) VALUES (OLD.spid, OLD.clientno, CONCAT((SELECT first_name from clients WHERE OLD.clientno = clients.clientno),(SELECT last_name from clients WHERE OLD.clientno = clients.clientno)," has cancelled your ", (SELECT servicename from services WHERE OLD.serviceid = services.serviceid), " appointment."), 'Unread')
 $$
 DELIMITER ;
 DELIMITER $$
@@ -134,10 +134,10 @@ CREATE TABLE `messages` (
 
 CREATE TABLE `notify_client` (
   `clinotif` int(11) NOT NULL,
+  `appointmentno` int(11) NOT NULL,
   `spid` int(11) NOT NULL,
   `receiver` int(11) NOT NULL,
   `notifmessage` varchar(100) NOT NULL,
-  `status` enum('Read','Unread') NOT NULL DEFAULT 'Unread',
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -149,10 +149,10 @@ CREATE TABLE `notify_client` (
 
 CREATE TABLE `notify_sp` (
   `notifspid` int(11) NOT NULL,
+  `appointmentno` int(11) NOT NULL,
   `receiver` int(11) NOT NULL,
   `clientno` int(11) NOT NULL,
   `notifmessage` varchar(100) NOT NULL,
-  `status` enum('Read','Unread') NOT NULL DEFAULT 'Unread',
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -253,7 +253,8 @@ ALTER TABLE `messages`
 ALTER TABLE `notify_client`
   ADD PRIMARY KEY (`clinotif`),
   ADD KEY `fk_spid_notif_idx` (`spid`),
-  ADD KEY `fk_client_rec_idx` (`receiver`);
+  ADD KEY `fk_client_rec_idx` (`receiver`),
+  ADD KEY `fk_appoint_nc_idx` (`appointmentno`);
 
 --
 -- Indexes for table `notify_sp`
@@ -261,7 +262,8 @@ ALTER TABLE `notify_client`
 ALTER TABLE `notify_sp`
   ADD PRIMARY KEY (`notifspid`),
   ADD KEY `fk_spid_rec_idx` (`receiver`),
-  ADD KEY `fk_clientno_not_idx` (`clientno`);
+  ADD KEY `fk_clientno_not_idx` (`clientno`),
+  ADD KEY `fk_appoint_ns_idx` (`appointmentno`);
 
 --
 -- Indexes for table `serviceproviders`
@@ -303,12 +305,12 @@ ALTER TABLE `sp_skills`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `appointmentno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `appointmentno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `clientno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110013;
+  MODIFY `clientno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110014;
 --
 -- AUTO_INCREMENT for table `messages`
 --
@@ -323,22 +325,22 @@ ALTER TABLE `notify_client`
 -- AUTO_INCREMENT for table `notify_sp`
 --
 ALTER TABLE `notify_sp`
-  MODIFY `notifspid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `notifspid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `serviceproviders`
 --
 ALTER TABLE `serviceproviders`
-  MODIFY `spid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=226485;
+  MODIFY `spid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=226486;
 --
 -- AUTO_INCREMENT for table `serviceprovider_schedules`
 --
 ALTER TABLE `serviceprovider_schedules`
-  MODIFY `schedid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `schedid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 --
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `serviceid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=228;
+  MODIFY `serviceid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=229;
 --
 -- Constraints for dumped tables
 --
@@ -363,6 +365,7 @@ ALTER TABLE `messages`
 -- Constraints for table `notify_client`
 --
 ALTER TABLE `notify_client`
+  ADD CONSTRAINT `fk_appoint_nc` FOREIGN KEY (`appointmentno`) REFERENCES `appointments` (`appointmentno`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_client_rec` FOREIGN KEY (`receiver`) REFERENCES `clients` (`clientno`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_spid_notif` FOREIGN KEY (`spid`) REFERENCES `serviceproviders` (`spid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
@@ -370,6 +373,7 @@ ALTER TABLE `notify_client`
 -- Constraints for table `notify_sp`
 --
 ALTER TABLE `notify_sp`
+  ADD CONSTRAINT `fk_appoint_ns` FOREIGN KEY (`appointmentno`) REFERENCES `appointments` (`appointmentno`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_clientno_not` FOREIGN KEY (`clientno`) REFERENCES `clients` (`clientno`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_spid_rec` FOREIGN KEY (`receiver`) REFERENCES `serviceproviders` (`spid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
