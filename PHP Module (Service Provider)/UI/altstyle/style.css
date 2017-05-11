@@ -1,0 +1,293 @@
+body {
+	margin: 0;
+    padding: 0;
+    overflow-x:hidden;
+}
+
+div {
+	display: block;
+}
+
+/*----------| Header |------------*/
+        #banner{
+        	position:fixed;
+            float: center;
+            height:80px;
+            width:100%;
+            top:0px;
+            padding: 0;
+            z-index:0;
+            background-color:#4d4d4d;
+}
+
+		.navi{
+            position: fixed;
+			bottom: 0;
+			z-index:2;
+		    width:100%;
+			height:5%;
+			top:12%;
+			text-align: center;
+			padding-top:5px;
+            padding-left:10px;
+			background-color: #2a2a2a;
+			color: white;
+			font-family: 'Glegoo', serif;
+            font-weight: 900;
+			}	
+
+        .navi a {
+            padding: .5%;
+            font-size: 30px;
+        }
+        .navi h1 {
+        	display:inline;
+            text-align: left;
+            margin: 0;
+            padding: 0;
+        }
+
+		a.ssHorizontal:link{
+            color: white;
+            font-size:15px;
+            text-decoration:none;
+        }
+		a.ssHorizontal:hover{
+            color: white;
+            font-size:17px;
+            font-family: 'Glegoo', serif;
+            border-top: 2px solid white;
+            border-bottom: 2px solid white;
+            transition: all 1.3s ease;
+            text-decoration:none;
+        }
+		
+		a.ssHorizontal:visited { 
+            color:white;
+			font-size:15px;
+			text-decoration:none;
+		}
+/*----------| Landing Page |------------*/
+		#home {
+			padding: 0;
+			background:url(images/pic1.png) no-repeat;
+			background-size: 120% 100%;
+			background-attachment: fixed;
+            left:-50%;
+			color: white;
+            height:100vh;
+			box-shadow : inset 0 0 1em #111;
+			margin: 0;
+		}
+
+		#home div.container {
+			position: absolute;
+            top:45%;
+			left:500px;
+			width: 450px;
+		    height:200px;
+			margin: 0px auto;
+			
+			opacity: 0.8;
+            padding:1em;
+		}
+		#home div.heading {
+			position: relative;
+            font-family: 'Glegoo', serif;
+            background-color: seashell;
+            opacity: 0.9
+			top:0px;
+			font-size: 2em;
+			padding:0px;
+			margin: 0px;
+		}
+
+		#home div.heading h1{
+            position:absolute;
+            color:#4b4b4b;
+			border:0px;
+			font-size: 1.5em;
+            right:50px;
+		    padding-bottom: 0px;
+            font-family: 'Glegoo', serif;
+		    font-weight: bold;
+		    padding:0px;
+		}
+
+		.palette{
+		    color:black;
+		    font-size: 2em;
+		    top:0px;
+		    padding-bottom: 0px;
+		    font-weight: bold;
+		    padding:0;
+		}
+
+		.head1 {
+            position: relative;
+            text-align: center;
+            color:#4b4b4b;
+			top:0px;
+            right:0;
+		    margin-top: 15%;
+		    font-family: 'Glegoo', serif;
+		    font-size: 30px;
+            display:inline-block;
+		}
+/*----------| About Us  |------------*/
+		#about {
+			position: relative;
+			top:0px;
+			padding: 0;
+			background:url(images/pic2.jpg) no-repeat;
+			background-size: 100% 100%;
+			background-attachment: fixed;
+			color: white;
+			z-index: 10;
+			height: 650px;
+			box-shadow : inset 0 0 1em #111;
+			margin: 0;
+		}
+
+		#about div.container {
+			position:absolute;
+			width: 400px;
+		    height: 450px;
+		    top:10%;;
+		    z-index:5;
+		    left:850px;
+            background-color: black;
+		    opacity: 0.9;
+			margin: 0px auto;
+			padding: 1em;
+		}
+
+		#about .head1{
+			position: absolute;
+			top:0px;
+			left:50%;
+			display: inline-block;
+			font-size: 40px;
+			font-weight: bold;
+			margin:0px;
+		}
+
+
+		#about div.heading3 h2{
+			position: relative;
+			top:40px;
+            right:0;
+		    margin-top: 5%;
+		    font-family: 'Glegoo', serif;
+		    font-size: 16px;
+		}
+		#about div.heading3{
+		    text-align: left;
+		}
+
+
+/*----------| Join Us  |------------*/
+        #join {
+			position: relative;
+			top:0px;
+			padding: 0;
+			background:url(images/image.jpg) no-repeat;
+			background-size: 110% 100%;
+			background-attachment: fixed;
+			color: white;
+			z-index: 30;
+			height: 650px;
+			margin: 0;
+		}
+
+		#join div.container {
+			position:absolute;
+			width: 900px;
+		    height: 300px;
+		    top:10%;
+		    z-index: 5;
+            float:left;
+		    left:0%;
+		    opacity: 0.9;
+			margin: 0px auto;
+			padding: 1em;
+		}
+
+		#join .head1{
+			position: absolute;
+			top:0px;
+			left:350px;
+			display: inline;
+			font-size: 90px;
+			font-weight: bold;
+			float:right;
+			margin:0px;
+		}
+
+		#join div.heading3 h2{
+			position: relative;
+			top:80px;
+			left:140px;
+		    margin-top: 5%;
+		    font-family: 'Glegoo', serif;
+		    font-size: 30px;
+		}
+		#join div.heading3{
+            left:50%;
+            top:%;
+		    text-align: center;
+		}
+		#join div.heading3 h2{
+			float: left;
+			margin-left: 0px;
+			display: inline;
+			text-align:left;
+		}
+
+/*----------| services |-------*/
+        #services {
+			position: relative;
+			top:0px;
+			padding: 0;
+			background-color:#161616;
+			color: white;
+			z-index: 30;
+			height: 550px;
+			margin: 0;
+		}
+
+/*----------| button |------------*/
+    .btn-lg,
+    .btn-group-lg > .btn {
+      padding: 5px 10px;
+      font-size: 30px;
+      text-align: center;
+      font-family: 'Damion', sans-serif;
+      line-height: 1.3333333;
+      border-radius: 6px;
+    }
+
+    .btn-block {
+      display: block;
+      width: 95%;
+    }
+
+    .w3-button {
+        white-space:normal
+    }
+
+    .w3-black,.w3-hover-black:hover{color:#fff!important;background-color:#000!important}
+
+/*----------| Footer |------------*/
+		#wrapfoot{
+			padding: 1em;
+			overflow: hidden;
+			background: #161c20;
+			color: white;
+		}
+		div.footer {
+			width: 100%;
+			text-align: center;
+			font-size: 2em;
+            font-family: 'Damion', sans-serif;
+		}
