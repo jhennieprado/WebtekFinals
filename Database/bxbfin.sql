@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2017 at 12:24 PM
--- Server version: 5.7.11
--- PHP Version: 5.6.19
+-- Generation Time: May 12, 2017 at 02:25 PM
+-- Server version: 5.7.14
+-- PHP Version: 5.6.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -37,6 +37,13 @@ CREATE TABLE `appointments` (
   `spid` int(11) NOT NULL,
   `amount` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `appointments`
+--
+
+INSERT INTO `appointments` (`appointmentno`, `sp_schedid`, `daterequest`, `clientno`, `serviceid`, `status`, `rating`, `spid`, `amount`) VALUES
+(1, 20, '2017-05-12 13:04:52', 110010, 201, 'done', 3, 220012, 100);
 
 --
 -- Triggers `appointments`
@@ -119,7 +126,15 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`clientno`, `first_name`, `last_name`, `birthdate`, `email`, `username`, `password`, `contactno`, `address`, `accountcreated`, `accepted`, `profpic`) VALUES
-(1, 'awd', 'awd', '2017-05-11', 'awd', 'awd', 'awd', 'awd', 'awd', '2017-05-12 12:15:10', 'N', NULL);
+(101113, 'Joshua', 'Warren', '1982-03-23', 'WarrenJosh@gmail.com', 'JoshWarren', 'iyoyiw77', '09107392170', 'ABC Rd, Quantum Theory City', '2017-04-25 23:37:59', 'N', NULL),
+(101134, 'Jared', 'Vasquez', '1986-04-22', 'jared01@yahoo.com', 'JaredVasquez', 'pjvde96s', '09472961670', 'Bagong Anak, Dinasilang Bldg., BC.', '2017-04-25 23:49:23', 'Y', NULL),
+(101425, 'Aubrey', 'Aguilar', '1992-05-18', 'AguilarA@gmail.com', 'AubreyA', 'aub1992a', '09151940119', 'Alpaca 69, Dagupan City', '2017-04-25 23:48:48', 'N', NULL),
+(102589, 'Loraine', 'Luna', '1989-02-16', 'Loraine992@gmail.com', 'LorLuna', 'lunapass7832', '09458127041', 'Orocan Rd., Dagupan, Pangasinan', '2017-04-25 23:38:39', 'Y', NULL),
+(110005, 'Norma', 'Castro', '1990-01-03', 'NormaCastro77@yahoo.com', 'NormaCastro', 'cas456tro', '09081904216', '#22 Bonifacio St., Baguio City', '2017-04-26 07:35:50', 'Y', NULL),
+(110006, 'Katie', 'Fuller', '1991-10-19', 'katfuller@gmail.com', 'Kat', '1991kabnm', '09184686141', 'Water Station Heaven Rd., BC', '2017-04-26 07:41:30', 'Y', NULL),
+(110007, 'Rex', 'Scott', '1989-11-16', 'rex256@gmail.com', 'RexS', 'yuio567', '09774978637', 'Ang River, Sa Tubig City', '2017-04-26 07:41:30', 'Y', NULL),
+(110009, 'Lynda', 'Riley', '1975-06-08', 'LynRil@gmail.com', 'Lynda', 'ril678da', '09288036814', 'Pels stop St., Last One Bldg, BC', '2017-04-26 07:35:18', 'Y', NULL),
+(110010, 'Mark', 'Espiritu', '1990-02-02', 'ohmyara@gmail.com', '2150804', '123asd', '09412215644', 'Banal Ata St., Gotham City', '2017-04-29 18:46:33', 'Y', NULL);
 
 -- --------------------------------------------------------
 
@@ -148,8 +163,18 @@ CREATE TABLE `notify_client` (
   `spid` int(11) NOT NULL,
   `receiver` int(11) NOT NULL,
   `notifmessage` varchar(100) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `seen` enum('false','true') NOT NULL DEFAULT 'false'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `notify_client`
+--
+
+INSERT INTO `notify_client` (`clinotif`, `appointmentno`, `spid`, `receiver`, `notifmessage`, `timestamp`, `seen`) VALUES
+(1, 1, 220012, 110010, 'Irma Baker has accepted your request', '2017-05-12 13:07:22', 'true'),
+(2, 1, 220012, 110010, 'Irma Baker has marked your Haircut appointment done', '2017-05-12 13:07:34', 'true'),
+(3, 1, 220012, 110010, 'Irma Baker has marked your Haircut appointment done', '2017-05-12 13:07:39', 'true');
 
 -- --------------------------------------------------------
 
@@ -165,6 +190,13 @@ CREATE TABLE `notify_sp` (
   `notifmessage` varchar(100) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `notify_sp`
+--
+
+INSERT INTO `notify_sp` (`notifspid`, `appointmentno`, `receiver`, `clientno`, `notifmessage`, `timestamp`) VALUES
+(1, 1, 220012, 110010, 'Mark Espiritu has made a/an Haircut appointment', '2017-05-12 13:04:52');
 
 -- --------------------------------------------------------
 
@@ -190,7 +222,14 @@ CREATE TABLE `serviceproviders` (
 --
 
 INSERT INTO `serviceproviders` (`spid`, `first_name`, `last_name`, `email`, `contactno`, `username`, `password`, `accepted`, `totalrating`, `profpic`) VALUES
-(1, 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'A', 0, NULL);
+(220012, 'Irma', 'Baker', 'irmabaker9@gmail.com', '09188988995', 'Irma', 'bakeeer56', 'A', 0, NULL),
+(220042, 'Thomas', 'Ryan', 'ThomasR88@gmail.com', '09465694371', 'Thomas', 'jaden1456', 'A', 0, NULL),
+(220052, 'Jessie', 'Lee', 'jessie03@yahoo.com', '09772213075', 'JessieLee', '03qwerty', 'P', 0, NULL),
+(220125, 'Myron', 'Franklin', 'MFranklin@yahoo.com', '09436845560', 'Myron', 'ixabun27', 'A', 0, NULL),
+(220254, 'Lela', 'Salazar', 'lela52salazar@yahoo.com', '09158847461', 'Lela', '123LS52', 'P', 0, NULL),
+(220582, 'Angelica', 'Sherman', 'angel67@gmail.com', '09265751126', 'angel', 'sherang546', 'A', 0, NULL),
+(224695, 'Gerard', 'West', 'GW67@gmail.com', '09282713478', 'GW', '67drareg', 'P', 0, NULL),
+(226482, 'May', 'Ellis', 'ellismay@yahoo.com', '09499251352', 'Maye', '1983may', 'A', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -212,7 +251,32 @@ CREATE TABLE `serviceprovider_schedules` (
 --
 
 INSERT INTO `serviceprovider_schedules` (`schedid`, `spid`, `sched_date`, `start_time`, `end_time`, `vacant`) VALUES
-(1, 1, '2017-05-12', '03:00:00', '09:00:00', 'yes');
+(20, 220012, '2017-05-11', '09:30:00', '11:30:00', 'yes'),
+(21, 220012, '2017-05-12', '09:30:00', '11:30:00', 'yes'),
+(22, 220012, '2017-05-13', '09:30:00', '11:30:00', 'no'),
+(23, 220012, '2017-05-14', '09:30:00', '11:30:00', 'yes'),
+(24, 220042, '2017-05-11', '09:30:00', '11:30:00', 'yes'),
+(25, 220042, '2017-05-12', '09:30:00', '11:30:00', 'yes'),
+(26, 220042, '2017-05-13', '09:30:00', '11:30:00', 'yes'),
+(27, 220042, '2017-05-14', '09:30:00', '11:30:00', 'yes'),
+(28, 220052, '2017-05-11', '09:30:00', '11:30:00', 'yes'),
+(29, 220052, '2017-05-12', '09:30:00', '11:30:00', 'yes'),
+(30, 220052, '2017-05-13', '09:30:00', '11:30:00', 'yes'),
+(31, 220125, '2017-05-11', '09:30:00', '11:30:00', 'yes'),
+(32, 220125, '2017-05-12', '09:30:00', '11:30:00', 'yes'),
+(33, 220125, '2017-05-13', '09:30:00', '11:30:00', 'yes'),
+(34, 220254, '2017-05-11', '09:30:00', '11:30:00', 'yes'),
+(35, 220254, '2017-05-12', '09:30:00', '11:30:00', 'yes'),
+(36, 220254, '2017-05-13', '09:30:00', '11:30:00', 'yes'),
+(37, 220582, '2017-05-12', '01:00:00', '04:30:00', 'yes'),
+(38, 220582, '2017-05-13', '01:00:00', '04:30:00', 'yes'),
+(39, 220582, '2017-05-14', '01:00:00', '04:30:00', 'yes'),
+(40, 224695, '2017-05-12', '01:00:00', '04:30:00', 'yes'),
+(41, 224695, '2017-05-13', '01:00:00', '04:30:00', 'yes'),
+(42, 224695, '2017-05-14', '01:00:00', '04:30:00', 'yes'),
+(43, 226482, '2017-05-11', '01:00:00', '04:30:00', 'yes'),
+(44, 226482, '2017-05-12', '01:00:00', '04:30:00', 'yes'),
+(45, 226482, '2017-05-13', '01:00:00', '04:30:00', 'yes');
 
 -- --------------------------------------------------------
 
@@ -232,7 +296,31 @@ CREATE TABLE `services` (
 --
 
 INSERT INTO `services` (`serviceid`, `servicename`, `description`, `category`) VALUES
-(1, 'awdawd', 'awdawdawd', 'awdadawd');
+(201, 'Haircut', 'starting price for minimum length ', 'Hair Styling'),
+(202, 'shampoo and blowdry', 'simple shampoo and blowdry for damaged hair', 'Hair Styling'),
+(203, 'Iron/Curling', 'straighten or curl hair', 'Hair Styling'),
+(204, 'Eye makeup', 'any style for eye makeup', 'Makeup'),
+(205, 'Full makeup', 'full face makeup', 'Makeup'),
+(206, 'tint (root)', 'hair coloring at the roots', 'Hair Coloring'),
+(207, 'tint (full)', 'hair coloring of full length', 'Hair Coloring'),
+(208, 'Conditioning', 'hair color conditioning', 'Hair Coloring'),
+(209, 'Highlights', 'hair highlights, any style', 'Hair Coloring'),
+(210, 'hot oil', 'regular hot oil treatment', 'Hair Treatment'),
+(211, 'hair spa', 'regular hair treatment', 'Hair Treatment'),
+(212, 'Keratherapy', 'express keratherapy', 'Hair Treatment'),
+(213, 'eyebrow wax', 'eyebrow waxing', 'Waxing'),
+(214, 'Underarm wax', 'underarm waxing', 'Waxing'),
+(215, 'Arm wax', 'full arm waxing', 'Waxing'),
+(216, 'Leg wax', 'full leg waxing', 'Waxing'),
+(217, 'Bikini wax', 'bikini area waxing', 'Waxing'),
+(218, 'Brazilian wax', 'brazilian type of waxing', 'Waxing'),
+(219, 'Perm', 'hair perm', 'Hair Form'),
+(220, 'Relax', 'hair relax', 'Hair Form'),
+(221, 'Rebond', 'hair rebond', 'Hair Form'),
+(222, 'manicure', 'fingernails and hand treatment', 'Nails'),
+(223, 'foot spa', 'foot care', 'Foot'),
+(224, 'Pedicure', 'foot and toenails treatment', 'Nails'),
+(225, 'Nail art', 'choose from any nail design available', 'Foot');
 
 -- --------------------------------------------------------
 
@@ -251,7 +339,11 @@ CREATE TABLE `sp_skills` (
 --
 
 INSERT INTO `sp_skills` (`spid`, `serviceid`, `price`) VALUES
-(1, 1, 123123);
+(220012, 201, 100),
+(220012, 202, 150),
+(220012, 203, 120),
+(220012, 208, 100),
+(220042, 209, 300);
 
 --
 -- Indexes for dumped tables
@@ -342,12 +434,12 @@ ALTER TABLE `sp_skills`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `appointmentno` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `appointmentno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `clientno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `clientno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110011;
 --
 -- AUTO_INCREMENT for table `messages`
 --
@@ -357,27 +449,27 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `notify_client`
 --
 ALTER TABLE `notify_client`
-  MODIFY `clinotif` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `clinotif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `notify_sp`
 --
 ALTER TABLE `notify_sp`
-  MODIFY `notifspid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `notifspid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `serviceproviders`
 --
 ALTER TABLE `serviceproviders`
-  MODIFY `spid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `spid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=226483;
 --
 -- AUTO_INCREMENT for table `serviceprovider_schedules`
 --
 ALTER TABLE `serviceprovider_schedules`
-  MODIFY `schedid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `schedid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 --
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `serviceid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `serviceid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=226;
 --
 -- Constraints for dumped tables
 --
