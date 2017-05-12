@@ -5,8 +5,8 @@
  */
 package Servlets;
 
+import Servlets.DbManipulators.TableConnect;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -17,6 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -37,16 +38,28 @@ public class ValidServiceProviderServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+
+        HttpSession session = request.getSession(false);
+        try{
+            String userName = session.getAttribute("UserName").toString();
+        }catch(NullPointerException exc){
+            String redirect = response.encodeRedirectURL("SessionExpired.jsp");
+            response.sendRedirect(redirect);
+            return;
+        }
         try {
+            //pass in the connection and then terminate it
+            //in the next servlet 
             TableConnect connect = new TableConnect();
-            String query = "SELECT * FROM serviceprovider WHERE accepted = 'Y'";
+            String query = "SELECT * FROM serviceproviders ORDER BY accepted";
             ResultSet result = connect.queryFromDatabase(query);
-            request.setAttribute("ValidSp",result);
-            connect.closeConnection();
-            RequestDispatcher dispatcher = request.getRequestDispatcher("ConvertResultSet");
+            request.setAttribute("result",result);
+            request.setAttribute("bean","spY");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("ConvertResultSetServlet");
             dispatcher.forward(request,response);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ValidServiceProviderServlet.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
     }
 

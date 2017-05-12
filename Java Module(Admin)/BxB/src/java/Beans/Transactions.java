@@ -9,8 +9,11 @@ package Beans;
  *
  * @author Vash
  */
+import java.sql.ResultSet;
 import java.sql.Timestamp;
-public class Transactions {
+import java.util.ArrayList;
+
+public class Transactions implements Convertable {
     private int idTransaction;
     private Timestamp transDate;
     private int appointmentNo;
@@ -51,6 +54,11 @@ public class Transactions {
     @Override
     public String toString() {
         return "Transactions{" + "idTransaction=" + idTransaction + ", transDate=" + transDate + ", appointmentNo=" + appointmentNo + '}';
+    }
+
+    @Override
+    public ArrayList<Transactions> toArrayList(ResultSet results) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

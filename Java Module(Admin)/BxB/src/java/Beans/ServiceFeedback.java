@@ -5,11 +5,14 @@
  */
 package Beans;
 
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
 /**
  *
  * @author Vash
  */
-public class ServiceFeedback {
+public class ServiceFeedback implements Convertable {
     private int spId;
     private int serviceid;
     private float rating;
@@ -51,6 +54,11 @@ public class ServiceFeedback {
     public String toString() {
         return "ServiceFeedback{" + "spId=" + spId + ", serviceid=" + 
                 serviceid + ", rating=" + rating + '}';
+    }
+
+    @Override
+    public ArrayList<ServiceFeedback> toArrayList(ResultSet results) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

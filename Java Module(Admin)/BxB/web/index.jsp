@@ -22,5 +22,8 @@
             <input type ="submit"  value="Log in" id="LogIn"/>    
         </form>
         <hr />
+        
+        <a href="InsertSp.jsp"><h1>Register as service provider </h1></a>
+        <a href="InsertClient.jsp"><h1>Register as client </h1></a>
     </body>
 </html>

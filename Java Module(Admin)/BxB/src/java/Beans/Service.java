@@ -5,18 +5,31 @@
  */
 package Beans;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Vash
  */
 
-public class Service {
+public class Service implements Convertable {
     private int serviceId;
     private String serviceName;
     private float serviceAmount;
     private String description;
     private String category;
 
+    public Service() {
+        
+    }
+
+    
+    
+    
     public Service(int serviceId, String serviceName, float serviceAmount, String description, String category) {
         this.serviceId = serviceId;
         this.serviceName = serviceName;
@@ -25,28 +38,13 @@ public class Service {
         this.category = category;
     }
 
-    public void setServiceId(int serviceId) {
-        this.serviceId = serviceId;
-    }
-
-    public void setServiceName(String serviceName) {
+    public Service(String serviceName, float serviceAmount, String description, String category){
+        this.serviceId = 0;
         this.serviceName = serviceName;
-    }
-
-    public void setServiceAmount(float serviceAmount) {
         this.serviceAmount = serviceAmount;
-    }
-
-    public void setDescription(String description) {
         this.description = description;
-    }
-
-    public void setCategory(String category) {
         this.category = category;
     }
-    
-    
-       
     public int getServiceId() {
         return serviceId;
     }
@@ -72,6 +70,31 @@ public class Service {
         return "Services{" + "serviceId=" + serviceId + ", serviceName=" + 
                 serviceName + ", serviceAmount=" + serviceAmount + ", description=" 
                 + description + ", category=" + category + '}';
+    }
+
+    @Override
+    public ArrayList<Service> toArrayList(ResultSet results) {
+        ArrayList<Service> list = new ArrayList<> ();
+        
+        try {
+            while(results.next()){
+                int servId = results.getInt(1);
+                String servName = results.getString(2);
+                float fee = results.getFloat(3);
+                String desc = results.getString(4);
+                String cat =  results.getString(5);
+                
+                Service service = new Service(servId,servName,fee,desc,cat);
+                
+                list.add(service);
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Service.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace(); //remember to remove these stack traces.
+        }
+        
+        return list;
     }
     
     

@@ -5,11 +5,14 @@
  */
 package Beans;
 
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
 /**
  *
  * @author Vash
  */
-public class Messages {
+public class Messages implements Convertable {
     private final String messageId;
     private final int receiver;
     private final int sender;
@@ -42,6 +45,11 @@ public class Messages {
     public String toString() {
         return "Messages{" + "messageId=" + messageId + ", receiver=" +
                 receiver + ", sender=" + sender + ", mdesc=" + mdesc + '}';
+    }
+
+    @Override
+    public ArrayList<Messages> toArrayList(ResultSet results) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

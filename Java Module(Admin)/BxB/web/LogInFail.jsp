@@ -13,5 +13,6 @@
     </head>
     <body>
         <h1>Wrong credentials!</h1>
+        <p><c:out value="${requestScope.thisId}"/></p>
     </body>
 </html>

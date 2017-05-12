@@ -5,6 +5,7 @@
  */
 package Servlets;
 
+import Servlets.DbManipulators.LogInCheck;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpSession;
 /**
 /**
  *
@@ -24,7 +26,7 @@ import javax.servlet.annotation.WebServlet;
 public class LogInServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
         String userName = request.getParameter("user_name");
@@ -33,17 +35,17 @@ public class LogInServlet extends HttpServlet {
 
         try {
             LogInCheck logInCheck = new LogInCheck(userName, passWord);
-            if(logInCheck.isCredentialsValid()){
-                
+            if(logInCheck.isCredentialsValid()){               
                 /** If you want to still do the ajax thingy
                 String red = response.encodeRedirectURL("LogInSuccess.jsp");
                 String json = "{ 'content':" + '"' + red + '"' + " , " + "'type':'url'}";
                 json = json.replace("'".charAt(0), '"' );
                 response.getWriter().write(json);
                 else* */
-                
+                HttpSession session = request.getSession(true);
+                session.setAttribute("UserName", userName);
                 request.setAttribute("UserName", userName);
-                request.setAttribute("DateToday", new Date().toString());
+                session.setMaxInactiveInterval(-1);
                 logInCheck.closeConnection();
                 RequestDispatcher dispatcher = request.getRequestDispatcher("MainServlet");
                 dispatcher.forward(request, response);
@@ -57,11 +59,31 @@ public class LogInServlet extends HttpServlet {
             logInCheck.closeConnection();
         } catch (Exception ex) {
             Logger.getLogger(LogInServlet.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
             response.getWriter().write("SOMETHING WENT WRONG!");
         }
 
 
     }
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try{
+            HttpSession session = request.getSession(false);
+            if(session.getAttribute("UserName") == null){
+                String url = response.encodeRedirectURL("LogInFail.jsp");
+                response.sendRedirect(url);
+            }else{
+                String url = response.encodeRedirectURL("MainServlet");
+                response.sendRedirect(url);
+            }
+        }catch(NullPointerException exception){
+            String url = response.encodeRedirectURL("LogInFail.jsp");
+            response.sendRedirect(url);            
+        }
+    }
+    
     /**
      * Returns a short description of the servlet.
      *

@@ -14,7 +14,6 @@
     <body>
         <h1>Hello World!</h1>
         <form action="InsertServiceServlet" method="post">
-           ServiceId <input type="text" name="service_id"/><br />
            ServiceName <input type="text" name="service_name"/><br />
            ServiceAmount <input type="text" name="service_amount"/><br />
            Description <input type="text" name="description"/><br />
