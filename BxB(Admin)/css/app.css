@@ -1,0 +1,91 @@
+#welcome{
+    padding-top:10px;
+}
+#admin{
+   text-align:center; 
+   padding-top:50px; 
+}
+#login{
+    float: right;
+}
+
+#plogin{
+    padding-right: 50px;
+}
+
+.navigation {
+    position:fixed;
+    padding: 20px;
+    top:0; 
+    left:0;
+    height: 100%;
+    width: 50px;
+    
+}
+
+.main-container{
+    text-align: center;
+}
+
+#statistics{
+    padding:10px;
+    display:inline-block;
+        
+}
+
+#SP{
+    padding:10px;
+    display: inline-block;
+        
+}
+
+#Clients{
+    padding:10px;
+    display:inline-block;
+        
+}
+#one{
+    padding: 100px;
+}
+
+#two{
+    padding: 100px;
+}
+
+#table1{
+    size:20px;
+    display:inline-block;
+    padding-top: 10px;
+}
+#table2{
+    size:20px;
+    display:inline-block;
+    padding-top: 10px;
+}
+#table3{
+    size:20px;
+    display:inline-block;
+    padding-top: 10px;
+}
+
+#save{
+    float:right;
+    display: block;
+}
+
+#edit{
+    float:right;
+    display: block;
+}
+
+.serviceproviders div{
+    display: inline-block;
+    float: left;
+}
+
+#SPpic{
+    padding:2px;
+    border-radius: 90px;
+    border-color:black;
+    border: 2px;
+}
