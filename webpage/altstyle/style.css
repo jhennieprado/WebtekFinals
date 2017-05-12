@@ -269,7 +269,17 @@ div {
 
     .btn-block {
       display: block;
-      width: 95%;
+      width: 45%;
+    }
+
+    .btn-block1 {
+      display: block;
+      width: 45%;
+    }
+
+    .btn-block2{
+      display: block;
+      width: 45%;
     }
 
     .w3-button {
