@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Service Provider</title>
+    <meta charset="UTF-8">
+    <meta name="Author" content="BxbWebsite">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/apps.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Pacifico" rel="stylesheet">
+    <link rel="icon" href="images/logo.png" type="image/gif" sizes="16x16">
+
+</head>
+
+<body>
+    <div id="sidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="notification.html">Notifications</a>
+        <a href="settings.html">Account Settings</a>
+    </div>
+    <div id="banner">
+        <img src="css/images/bxb.png">
+        <span style="font-size:1.5em;font-family:Lato;cursor:pointer;color:white;float:right;z-index:2;padding-top:50px;" onclick="openNav()">&#9776; Menu</span>
+    </div>
+
+    <div id="main">
+    </div>
+    <!--About Me-->
+    <div id="About">
+        <div id="aboutbox">
+            <div id="welcome">
+                Your Schedule for Today:
+            </div>
+            <div id="appointment">
+
+                <ul class="no-bullet">
+                    <li>
+                        <span>Service</span> Hot hair
+                        <br>
+                        <span>May 25, 2017 9:30 PM</span>
+                        <div>
+                            $client name has approved your request;
+                        </div>
+                    </li>
+                    <li>
+                        <span>Service</span> Hot hair
+                        <span class="float-right">$SP name</span>
+                        <br>
+                        <span class="float-right">May 25, 2017 9:30 PM</span>
+                        <span>Message</span>
+                        <div>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="no-bullet row" data-equalizer>
+                    <li class="columns large-4 large-offset-2" data-equalizer-watch>
+                        <span>Service</span> Hot hair
+                        <br>
+                        <span>May 25, 2017 9:30 PM</span>
+                        <div>
+                            $sp name has approved your request;
+                        </div>
+                    </li>
+                    <li class="columns large-4" data-equalizer-watch>
+                        <span>Service</span> Hot hair
+                        <span class="float-right">$SP name</span>
+                        <br>
+                        <span class="float-right">May 25, 2017 9:30 PM</span>
+                        <span>Message</span>
+                        <div>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--profile-->
+    <div id="Profile">
+        <div id="ProfBox">
+            <div id="profilePic">
+                <div id="img">
+                   <img src="css/images/-text.png" onerror="if (this.src != 'error.jpg') this.src = 'error.jpg';" height=200px width=200px>
+                </div>
+            </div>
+            <div id="name">
+                <p>Hello Clark Mariano!</p>
+            </div>
+        </div>
+
+
+        <div id="info">
+            <!--this should be in list type-->
+            <p>Contact Info:(+63) 917 234 9083
+                <br>Email Info:service_provider@domain.com
+                <br>
+                <br>Skills:
+                <br> Communication.
+                <br> Ability to Work Under Pressure.
+                <br> Decision Making.
+                <br> Time Management.
+                <br> Self-motivation.
+                <br> Conflict Resolution.
+                <br> Leadership.
+                <br> Adaptability.
+                <br>
+            </p>
+        </div>
+    </div>
+
+
+    <script>
+        function openNav() {
+            document.getElementById("sidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        }
+
+        function closeNav() {
+            document.getElementById("sidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "white";
+        }
+
+    </script>
+</body>
+
+</html>
