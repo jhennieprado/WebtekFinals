@@ -11,7 +11,7 @@
 			}
 
 	
-	$query = "SELECT DISTINCT s.serviceid, s.servicename FROM services s NATURAL JOIN sp_skills where s.serviceid in (SELECT serviceid FROM sp_skills NATURAL JOIN serviceproviders where username = '$username') order by s.category";
+	$query = "SELECT DISTINCT s.serviceid, s.servicename FROM services s NATURAL JOIN sp_skills where s.serviceid in (SELECT serviceid FROM sp_skills NATURAL JOIN serviceproviders where username = '$username')";
 	$result = mysqli_query($conn, $query);
 	$query2 = "SELECT spid from serviceproviders where username = '$username'";
 	
@@ -54,14 +54,12 @@ if(isset($_POST['delete'])) {
 	$query3 = "SELECT serviceid FROM appointments a  NATURAL JOIN serviceprovider_schedules p  where a.status='accepted' and p.spid = '$spid' and serviceid = '$serviceid'";
 	$result3 = mysqli_query($conn, $query3);
 	$r3 = mysqli_fetch_assoc($result3);
-	if (mysqli_num_rows($result3) != 0) {
-
-		echo "There is a current appointment that this skill will be used on";
-	} else {
-			
-			$delete = "DELETE from sp_skills WHERE serviceid = '$serviceid' and spid = '$spid'";
-			$done = mysqli_query($conn, $delete);
-	}
+    	
+    $delete = "DELETE from sp_skills WHERE serviceid = '$serviceid' and spid = '$spid'";
+    $done = mysqli_query($conn, $delete);
+    echo "<script>
+                    window.location.href = 'deleteskill.php';
+                </script>";
 }
  ?>
 
