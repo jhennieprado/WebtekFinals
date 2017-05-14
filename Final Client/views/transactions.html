@@ -1,0 +1,104 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty x Beast</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+    <style>
+    main li {
+    color: #373737;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0px 2px 3px #ccc;
+    }
+
+    main li span{
+    font-size: 1.25em;
+    font-weight: bold;
+    }
+    </style>
+</head>
+
+<body>
+    <nav class="top-bar">
+        <div class="top-bar-title">
+            <a href="/home"><img src="images/bxb.png"><strong>Beauty x Beast</strong>
+            </a>
+        </div>
+        <div id="responsive-menu">
+            <div class="top-bar-right">
+                <ul class="menu dropdown" data-dropdown-menu>
+                    <li><a href="/home">Home</a>
+                    </li>
+                    <li><a href="/services">Services</a>
+                    </li>
+                    <li><a href="/transactions" class="current">Transactions</a>
+                    </li>
+                    <li><a href="home/?action=logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="catalog-header">
+            <div class="row">
+                <div class="columns large-12 text-center">
+                    <h1>All Transactions</h1> 
+                    </div>
+            </div>
+        </div>
+        <br>
+        <br>
+           <!-- <div class="row">
+                <div class="columns large-2 large-offset-3">
+                    <div class="input-group">
+                        <h4>Service</h4>
+                        <select id="service">
+                            <option value='201'>Haircut</option>
+                            <option value='202'>shampoo and blowdry</option>
+                            <option value='203'>Iron/Curling</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="columns large-4">
+                    <div class="input-group">
+                        <h4>Date</h4>
+                        <input id="day" type="date" />
+                        <h4>Time Period</h4>
+                        <select id="period">
+                            <option value="morning">7:00 - 12:00</option>
+                            <option value="afternoon">12:00 - 5:00</option>
+                        </select>
+                        <input type="button" id="find" class="button" value="Submit"> </div>
+                </div>
+            </div>
+        </div>
+        <br>-->
+        <div class="row text-center" id="appointments"><br><br>
+
+
+
+
+        </div>
+
+    </main>
+    <footer>
+        <div class="row">
+            <div class="columns large-12"> <span>&copy; 2017 Beauty x Beast Inc, All Rights Reserved</span> </div>
+        </div>
+    </footer>
+    <script src="transactions.js" type="text/javascript"></script>
+</body>
+
+</html>

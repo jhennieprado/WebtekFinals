@@ -1,0 +1,98 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty x Beast</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+    <style>
+    main li {
+    color: #373737;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0px 2px 3px #ccc;
+    }
+
+    main li span{
+    font-size: 1.25em;
+    font-weight: bold;
+    }
+    span.timestamp {
+        font-size: 1em;
+    }
+    span.message {
+        font-size: 1em;
+        font-weight: normal;
+    }
+    </style>
+</head>
+
+<body>
+    <nav class="top-bar">
+        <div class="top-bar-title">
+            <a href="/home"><img src="images/bxb.png"><strong>Beauty x Beast</strong>
+            </a>
+        </div>
+        <div id="responsive-menu">
+            <div class="top-bar-right">
+                <ul class="menu dropdown" data-dropdown-menu>
+                    <li><a href="/home">Home</a>
+                    </li>
+                    <li><a href="/services">Services</a>
+                    </li>
+                    <li><a href="/transactions">Transactions</a>
+                    </li>
+                    <li><a href="home/?action=logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="catalog-header">
+            <div class="row">
+                <div class="columns large-12 text-center">
+                    <h1>All Notifications</h1> 
+                    </div>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <div class="row text-center" id="notifications"><br><br>
+
+
+
+
+        </div>
+
+    </main>
+    <footer>
+        <div class="row">
+            <div class="columns large-12"> <span>&copy; 2017 Beauty x Beast Inc, All Rights Reserved</span> </div>
+        </div>
+    </footer>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("#notifications").html("Loading..");
+        $.get("/notifications",{"action":"fetch"},function(data){ 
+            if(data)  {
+                $("#notifications").html(data);
+            } else {
+                $("#notifications").html("Error loading all notifications.");
+            }
+        });
+    });
+    </script>
+</body>
+
+</html>

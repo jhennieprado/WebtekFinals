@@ -1,0 +1,68 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty x Beast</title>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/foundation.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+	<script>
+	$(document).ready(function(){
+	    var u, p;
+	    $("#submit").click(function(){
+	        u=$("#username").val();
+	        p=$("#password").val();
+	        $("#status").html("Logging In...");
+	        $.post("/login",{username:u,password:p},function(data){ 
+	            if(data=='done')  {
+	                window.location.href="/home";
+	            } else {
+	            	$("#status").html("Invalid Credentials or Account is not accepted yet.");
+	            }
+	        });
+	    });
+	});
+	</script>
+  </head>
+  <body id="clientlogin">
+    <!--TOP Navigation-
+
+  <!--Modal Login-->
+
+      <div class="row">
+        <div class="columns large-6 large-offset-3 text-center" id="admin-login">
+        <img src="images/logo.png">
+        <form id="authentication" onsubmit="return false" data-abide novalidate>
+          <div class="alert callout" data-abide-error style="display: none">
+             <p><i class="fi-alert"></i> There are some errors in your form.</p>
+          </div>
+          
+          <label>Username
+            <input type="text" id="username" required>
+            <span class="form-error">
+                This field is required!
+              </span>
+          </label>
+          <label>Password
+            <input type="password" id="password" required>
+            <span class="form-error">
+                This field is required
+            </span>
+          </label>
+          <span id="status"></span>
+          <p class="help-text"><a href="/register">Don't have account yet? Register now</a></p>
+            <button id="submit" class="button expanded" type="login" value="Login">Login</button>
+          </div>
+        </form>
+  
+
+    </div>
+  <!--Modal Register-->
+
+  </body>
+</html>
