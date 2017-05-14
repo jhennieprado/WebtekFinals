@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
+        <meta charset="utf-8">
+        <title>Bootstrap Edit profile form X8w3pTBYSV</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Bootstrap User information form snippet with timezones X8w3pTBYSV example html, css, javascript snippet.">
+        <meta name="og:site_name" content="Bootply" />
+        <meta name="og:title" content="Bootstrap Playground - Bootstrap Edit profile form X8w3pTBYSV" />
+        <meta name="og:description" content="Bootstrap User information form snippet with timezones X8w3pTBYSV example html, css, javascript snippet. Example snippets with Bootstrap HTML, JavaScript and CSS." /> 
+        <meta property="og:image" content="/assets/bp_logo.jpg"/>
+        <meta name="google-site-verification" content="MIaHKEqspbaoI62kQsOLavc6RdqMZtpkmoYNrpqzhqs" />
+        
+        <script src="/codemirror/lib/codemirror.js"></script>
+        <link rel="stylesheet" href="/codemirror/lib/codemirror.css">
+        <script src="/codemirror/mode/css/css.js"></script>
+        <script src="/codemirror/mode/javascript/javascript.js"></script>
+        <script src="/codemirror/mode/xml/xml.js"></script>
+        <script src="/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+        
+        <link href="//code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" type="text/css" rel="stylesheet" media="all">
+        <link href="//maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" >
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" >
+        <!--[if lt IE 9]>
+          <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="shortcut icon" href="/bootply_ico.jpg">
+        <link rel="apple-touch-icon" href="/bootply_ico.jpg">
+        
+        <script data-cfasync="false" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script data-cfasync="false" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+        <script data-cfasync="false" src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script src="/plugins/jquery.layout.js"></script>
+        <link href="/plugins/jquery.layout.css" rel="stylesheet">
+        <link rel="stylesheet" href="/plugins/bootstrap-select.min.css">
+        <link rel="stylesheet" href="/css/bootply.css">
+    </head>
+    <body itemscope itemtype="http://schema.org/WebApplication">
+        <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '482723745132387',
+              xfbml      : true,
+              version    : 'v2.7'
+            });
+          };
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "//connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <h1 itemprop="name" style="display:none;">Bootply</h1>
+        <meta itemprop="about" content="Bootstrap Editor, Snippets and Playground" />
+        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a href="http://bootply.com/" class="brand" title="Bootstrap editor, templates and snippets.">
+                    Bootply
+                </a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav nav-pills hidden-phone hidden-tablet">
+                    
+                        <li><a id="btnRun" title="Preview the result of your Javascript, HTML and CSS code" href="#">Run</a></li>
+                        
+                        
+                        <li><a id="btnFork" data-loading-text="Wait.." title="Fork this into a new Bootply" href="#">Fork</a></li>
+                        
+                        <li><a id="btnDrop" title="Toggle the Drag-and-Drop editor" href="#" rel="nofollow">Visual <i class='icon-eye-open'></i></a></li>
+                        <li><a id="btnSwitch" data-toggle="button" style="display:none;" href="#" rel="nofollow">Preview</a></li>
+                    
+                        <li class="fb-like hidden-phone hidden-tablet" data-href="http://bootply.com" data-send="false" data-layout="button_count" data-width="80" data-show-faces="false" data-font="arial"></li>
+                        <li class="hidden-phone">
+                            <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+                            <div class="bsa-cpc"></div>
+                            <script>
+                            (function(){
+                              _bsa.init('default', 'CVADC53Y', 'placement:bootplycom', {
+                                target: '.bsa-cpc',
+                                align: 'horizontal',
+                                disable_css: 'true'
+                              });
+                            })();
+                            </script>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-pills pull-right">
+                        <li><form class="input-append hidden-tablet" method="GET" action="/search" style="margin-top:4px;margin-bottom:5px;"><input type="text" title="Enter keyword(s) to find" id="kw" name="kw" class="span2" maxlength="40"><button type="submit" class="btn"><i class="icon-search" title="Search"></i></button></form>&nbsp;&nbsp;</li>
+                        <li class="dropdown " id="menuLogin">
+                            <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
+                            <div class="dropdown-menu" style="padding:17px;">
+                                <form id="formLogin" class="form"> 
+                                    <label>Login</label> 
+                                    <input name="_csrf" id="token" type="hidden" value="4MIBSTvz-LK4wDMunrQfTqXf3PHWJG9FF9ZU">
+    							    <input name="username" id="username" type="text" placeholder="Username" pattern="^[a-z,A-Z,0-9,_]{6,15}$" data-valid-min="6" title="Enter your username" required="">
+    							    <input name="password" id="password" type="password" placeholder="Password" title="Enter your password" required=""><br>
+    							    <button type="button" id="btnLogin" class="btn">Login</button>
+    							</form>
+                                <form><a href="#" title="Fast and free sign up!" id="btnNewUser" data-toggle="collapse" data-target="#formRegister">New User? Sign-up..</a></form>
+                                <form id="formRegister" class="form collapse">
+                                    <input name="_csrf" id="token" type="hidden" value="4MIBSTvz-LK4wDMunrQfTqXf3PHWJG9FF9ZU">
+                                    <input name="email" id="inputEmail" type="email" placeholder="Email" required="">
+        						    <input name="username" id="inputUsername" type="text" placeholder="Username" pattern="^[a-z,A-Z,0-9,_]{6,15}$" data-valid-min="6" title="Choose a username" required=""><br>
+    							    <input name="password" id="inputpassword" type="password" placeholder="Password" required=""> 
+                                    <input name="verify" id="inputVerify" type="password" placeholder="Password (again)" required=""><br>                                  
+    							    <button type="button" id="btnRegister" class="btn">Sign Up</button>
+    							</form>
+                                <a data-toggle="modal" role="button" href="#forgotPasswordModal">Forgot username or password?</a>
+                                <a data-toggle="modal" role="button" href="#contactModal"><small>Need help? Contact us</small></a>
+                            </div>
+                        </li>
+                        <li class="dropdown hide" id="menuUser">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="See your Bootply collection and profile">
+                                <i class='icon-user icon-xxlarge'> </i> <span id="lblUsername"></span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/user">Dashboard</a></li>
+                                <li><a href="/new">Create New Bootply</a></li>
+                                
+                                <li><a href="/logout">Logout</a></li>
+                                <li class="divider"> </li>
+                                <li><a href="/bootstrap-community">Community</a></li>
+                                <li><a href="/about">About</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div style="height:48px;" id="spacer">
+        
+        </div>
+        <div id="wrap">
+            <link rel="stylesheet" href="/css/editor.css">
+<script>
+var bs = {"4.0-alpha":{"combined":"//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css","icons":"","js":"//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js","css":"//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css","min":"//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"},"3.3.7":{"combined":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css","icons":"","js":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js","css":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css","min":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"},"3.3.6":{"combined":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css","icons":"","js":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js","css":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css","min":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"},"3.3.5":{"combined":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css","icons":"","js":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js","css":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css","min":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"},"3.3.4":{"combined":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css","icons":"","js":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js","css":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css","min":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"},"3.3.2":{"combined":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css","icons":"","js":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js","css":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.css","min":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"},"3.3.1":{"combined":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css","icons":"","js":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js","css":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.css","min":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"},"3.3.0":{"combined":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css","icons":"","js":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js","css":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.css","min":"//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"},"3.2.0":{"combined":"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css","icons":"","js":"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js","css":"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css","min":"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"},"3.1.1":{"combined":"//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css","icons":"","js":"//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js","css":"//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.css","min":"//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"},"3.1.0":{"combined":"//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css","icons":"","js":"//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js","css":"http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.css","min":"http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"},"3.0.3":{"combined":"//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css","icons":"","js":"//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js","css":"http://www.bootply.com/bootstrap/3/bootstrap.css","min":"http://www.bootply.com/bootstrap/3/bootstrap.css"},"3.0.2":{"combined":"//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css","icons":"","js":"//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js","css":"http://www.bootply.com/bootstrap/3/bootstrap.css","min":"http://www.bootply.com/bootstrap/3/bootstrap.css"},"3.0.1":{"combined":"//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css","icons":"//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap-glyphicons.css","js":"//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js","css":"http://www.bootply.com/bootstrap/3/bootstrap.css","min":"http://www.bootply.com/bootstrap/3/bootstrap.css"},"3.0.0":{"combined":"//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css","icons":"//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css","js":"//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js","css":"http://www.bootply.com/bootstrap/3/bootstrap.css","min":"http://www.bootply.com/bootstrap/3/bootstrap.css"},"3.0(RC2)":{"combined":"//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap.min.css","icons":"//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css","js":"//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/js/bootstrap.min.js","css":"http://www.bootply.com/bootstrap/3/bootstrap.css","min":"http://www.bootply.com/bootstrap/3/bootstrap.css"},"3.0(RC1)":{"combined":"//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css","icons":"//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css","js":"//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js","css":"http://www.bootply.com/bootstrap/3/bootstrap.css","min":"http://www.bootply.com/bootstrap/3/bootstrap.css"},"2.3.2":{"combined":"//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css","js":"//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js","css":"","min":"//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css","responsive":"http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css"},"2.3.1":{"combined":"//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css","js":"//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js","css":"","min":"//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap.min.css","responsive":"http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css"},"2.3.0":{"combined":"//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css","js":"//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js","css":"","icons":"","min":"//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap.min.css","responsive":"//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-responsive.min.css"},"2.2.2":{"combined":"//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css","js":"//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js","css":"","min":"//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap.min.css","responsive":"//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-responsive.min.css"},"2.2.1":{"combined":"//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css","js":"//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js","css":"","min":"//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap.min.css","responsive":"//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-responsive.min.css"},"2.1.1":{"combined":"//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css","js":"//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js","css":"","min":"//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.min.css","responsive":"//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-responsive.min.css"}};
+var jq = {"3.1.1":"//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js","3.1.0":"//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js","3.0.0":"//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js","2.2.4":"//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js","2.2.1":"//ajax.googleapis.com/ajax/libs/jquery/2.2.1/jquery.min.js","2.2.0":"//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js","2.1.4":"//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js","2.1.3":"//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js","2.1.1":"//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js","2.0.2":"//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js","1.10.1":"//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js","1.9.1":"//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js","1.9.0":"//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js","1.8.3":"//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js","1.8.2":"//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js","1.8.1":"//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js","1.8.0":"//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"};
+
+$(document).ready(function() {
+    for (v in bs) {$('<option>'+v+'</option>').appendTo('#bootstrapVersion')};
+    for (v in jq) {$('<option>'+v+'</option>').appendTo('#jqueryVersion')};
+    
+    
+    $("#bootstrapVersion option:contains('3.1.1')").attr('selected', 'selected');
+    $("#jqueryVersion option:contains('2.0.2')").attr('selected', 'selected');
+    
+    
+    
+    $('.vote-up,.vote-down,.fav').click(function(){
+        $('#navLogin').trigger('click');
+        return false;
+    });
+    
+    
+    $('#desc').click(function(){
+        $(this).css({"padding-bottom":"40px"});
+    });
+
+});
+</script>
+<style>
+        #footer,#push {
+            display: none;
+        }
+        
+        #dropster {
+            height: 99%;
+            overflow: hidden;
+        }
+        
+        #dragMenu .spacer {
+            color:#000;
+        }
+        
+        #dragMenu .item .well {
+            padding:1px;
+            margin:0;
+            color:#222;
+        }
+        
+        #dragMenu .item button {
+            cursor:grab;
+            cursor:-webkit-grab;
+        }
+        
+        #dragMenu .item span {
+            zoom:1.2;
+        }
+        
+        #dragMenu .item .small {
+            line-height:5px;
+        }
+        
+        #dragMenu h1,#dragMenu h2,#dragMenu h3,#dragMenu h4,#dragMenu .item input[type=text],#dragMenu .item textarea,.item select {
+            margin:0;
+            cursor:grab;
+            cursor:-webkit-grab;
+            resize:none;
+        }
+        
+        #dragMenu .item textarea {
+            font-size:12px;
+        }
+        
+        #dragMenu .item select {
+            padding:0;
+        }
+        
+        #dropHere {
+            top:42%;
+            left:23.8%;
+            width:50%;
+            position:absolute;
+            font-size:120%;
+            color:#999;
+            border:5px dashed #ccc;
+            padding:10px;
+            padding-top:30px;
+            padding-bottom:30px;
+            text-align:center;
+            opacity:.2;
+        }
+        
+        #dragMenu .gridrow {
+            border:1px dotted #eee;
+            border-radius:3px;
+            padding:2px;
+        }
+        
+        #dragMenu .col2, #dragMenu .col3, #dragMenu .col4 {
+            border:1px dashed #ddd;
+            border-radius:5px;
+            padding:2px;
+        }
+        
+        #context-menu {
+           z-index:2000;
+        }
+        
+        #context-menu input {
+        	font-size:80%;
+          	width:100%;
+          	border:1px solid #eee;
+          	padding:0;
+          	box-shadow:0 0 0;
+          	background-color:#f6f6f6;
+          	margin-bottom:0;
+        }
+        
+        #context-menu ul {
+            margin:0;
+        }
+        
+        #context-menu li {
+            list-style: none;
+            font-size:80%;
+        }
+        
+        #context-menu .table {
+          	width:170px;
+            margin-top:1px;
+            margin-bottom:1px;
+        }
+        
+        #context-menu .table td {
+        	padding: 2px;
+          	vertical-align:middle;
+            font-size:80%;
+        }
+        
+        #context-menu .table td:first-child {
+        	text-align:right;
+        }
+        
+        .context-heading {
+        	background-color:#efefef;
+          	padding:3px;
+          	font-weight:800;
+        }
+        
+        .ui-draggable-dragging {
+            cursor:grab;
+            cursor:-webkit-grab;
+            background-color:#33cc33;
+        }
+        
+        .ui-draggable-dragging.item div {
+            color:#000;
+        }
+        
+        .ui-state-disabled {
+            opacity:1;
+        }
+        
+        .ui-widget-content {
+            z-index:2000;
+        }
+        
+        #topMenu {
+            background-color:#333;
+            overflow: auto;
+        }
+        
+        #box {
+          position:relative;
+          padding:2px;
+          width:90%;
+          float:left;
+          margin-left:2px;
+          margin-top:2px;
+        }
+        
+        .scroller {
+          color:#ffffff;
+          width:40px;
+          text-align:center;
+          cursor:pointer;
+          display:none;
+          padding:5px;
+          margin-top:1px;
+        }
+        
+        .scroller-right{
+          float:right;
+        }
+        
+        .scroller-left {
+          float:left;
+        }
+        
+        #wrapper {
+            position:relative;
+            margin:0 auto;
+            overflow:hidden;
+          	height:59px;
+            padding:5px;
+            zoom:0.76;
+        }
+        
+        #dragMenu {
+            position:absolute;
+            left:0px;
+            top:0px;
+          	min-width:2600px;
+          	margin-left:12px;
+            margin-top:10px;
+        }
+        
+        .item{
+          	padding:2px;
+            padding-left:4px;
+            padding-right:4px;
+            /*float:left;*/
+        	display:table-cell;
+            margin:1px;
+            position:relative;
+            text-align:center;
+            cursor:grab;
+            cursor:-webkit-grab;
+            color:#efefef;
+            vertical-align:middle;
+        }
+</style>
+<div class="ui-layout-ignore span12 visible-phone hidden-tablet hidden-desktop">
+    <br>
+    Bootstrap Editor use requires a larger screen resolution. Resize your browser, or use a device with a larger screen (desktop or laptop). You can preview at smaller widths (phone / tablet), but the editing capability is disabled.
+    <br><br>
+    <a href="/render/X8w3pTBYSV">Switch to render view</a>
+</div>
+<div class="ui-layout-west hidden-phone hidden-tablet" style="display:none;" id="menu">
+    <div class="accordion" id="acc">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+            <a class="accordion-toggle" title="Bootstrap, jQuery version and JavaScript libraries" data-toggle="collapse" data-parent="#acc" href="#settings">Settings</a>
+            </div>
+            <div id="settings" class="accordion-body collapse in">
+                <div class="accordion-inner">
+                    <form id="opts"> 
+                        <fieldset style="padding:2px;font-size:90%;">
+                            <input name="_csrf" id="token" type="hidden" value="4MIBSTvz-LK4wDMunrQfTqXf3PHWJG9FF9ZU">
+                            <input id="fontawesome" name="fontawesome" type="hidden" value="0" />
+                            <input id="fontawesome4" name="fontawesome4" type="hidden" value="1" />
+                            <input id="jqueryui" name="jqueryui" type="hidden" value="0" />
+                            <input id="bsselect" name="bsselect" type="hidden" value="0" />
+                            <input id="bootply" name="bootply" type="hidden" value="0" />
+                            <input id="fuelux" name="fuelux" type="hidden" value="0" />
+                            <input id="isotope" name="isotope" type="hidden" value="0" />
+                            <input id="masonry" name="masonry" type="hidden" value="0" />
+                            <input id="googlemaps" name="googlemaps" type="hidden" value="0" />
+                            <input id="angular" name="angular" type="hidden" value="0" />
+                            <input id="handlebars" name="handlebars" type="hidden" value="0" />
+                            <input id="knockout" name="knockout" type="hidden" value="0" />
+                            <input id="theme_metroid" name="theme_metroid" type="hidden" value="0" />
+                            <input id="theme_flowstack" name="theme_flowstack" type="hidden" value="0" />
+                            <input id="theme_schoolhouse" name="theme_schoolhouse" type="hidden" value="0" />
+                        
+                        
+                            <input type="hidden" name="bootstrapVersion" value="3.1.1" />
+                            <input type="hidden" name="jqueryVersion" value="2.0.2" />
+                            <input type="hidden" id="name" name="name" value="Edit profile form" /><input type="hidden" id="desc" name="desc" value="User information form snippet with timezones" /><input type="hidden" id="tags" name="tags" value="edit, profile,form,user,snippet" />
+                            <input type="hidden" name="forkedId" value="" />
+                            <table >
+                                <tr>
+                                    <td colspan="2">
+                                    <a class="fav pull-right" href="#" title="Favorite this"><i class="icon-star-empty icon-large"></i>&nbsp;</a>
+                                    <h1 class="ellip">Edit profile form</h1>
+                                    <h3 class="smaller">
+                                         User information form snippet with timezones
+                                    </h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:80px;">
+                                        <div class="voteBox" style="width:50px;font-size:21pt;text-align:center;">
+                                            <div><i class="icon-chevron-up vote-up" title="+1 Vote Up (This is useful)"></i></div>
+                                            <div style="color:#737373;" id="voteCount" title="Number of user votes (likes)">0</div>
+                                            <div><i class="icon-chevron-down vote-down" title="-1 Vote Down"></i></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="badge" title="Impressions (views) of this ply">22289 <i class="icon-eye-open"></i></span><br>
+                                        Bootstrap v3.1.1<br>
+                                        
+                                        <a href="/like/edit+profile+form+user+snippet"><small>Related snippets</small></a><br>
+                                        
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                    
+                                        
+                                        
+                                        <a href="/tagged/edit" title="bootstrap edit"><span class="label">edit</span></a>
+                                        
+                                        <a href="/tagged/ profile" title="bootstrap  profile"><span class="label"> profile</span></a>
+                                        
+                                        <a href="/tagged/form" title="bootstrap form"><span class="label">form</span></a>
+                                        
+                                        <a href="/tagged/user" title="bootstrap user"><span class="label">user</span></a>
+                                        
+                                        <a href="/tagged/snippet" title="bootstrap snippet"><span class="label">snippet</span></a>
+                                        
+                                    
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <em><small>Created by:</small></em> <a href="/users/cskelly" title="User information form snippet with timezones"><small>cskelly</small></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        
+                        
+                            
+                        
+                        <hr>
+                        
+                            <a rel="nofollow" style="margin-left:3px;color:#333;" href="http://codeply.com/go/bp/X8w3pTBYSV" target="ext"><small>Run this on <b>Codeply</b> <i class="icon-external-link"></i></small></a>
+                        
+                            <br><a rel="nofollow" style="margin-left:3px;color:#333;" href="http://www.theme.cards/c/bootstrap-templates" target="ext"><small>Find <b>more templates</b> <i class="icon-external-link"></i></small></a>
+                            
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-group">
+            <div class="accordion-heading">
+            <a class="accordion-toggle" title="Find Bootstrap examples created by the Bootply community." data-toggle="collapse" data-parent="#acc" href="#community">Community</a>
+            </div>
+            <div id="community" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <div class="accordion accordion-sub" id="accCommunity" >
+                        <div class="well">
+                        <a href="/bootstrap-community"><u>Latest activity</u></a>
+                        <br><br>
+                        <small>Bootstrap snippets by tag</small><br>
+                        <a href="/tagged/form" title="Bootstrap form"><span class="label">form</span></a> 
+                        <a href="/tagged/starter" title="Bootstrap starter template"><span class="label">starter</span></a> 
+                        <a href="/tagged/navbar" title="Bootstrap navbar"><span class="label">navbar</span></a> 
+                        <a href="/tagged/responsive" title="Bootstrap responsive"><span class="label">responsive</span></a> 
+                        <a href="/tagged/modal" title="Bootstrap modal"><span class="label">modal</span></a> 
+                        <a href="/tagged/layout" title="Bootstrap layout"><span class="label">layout</span></a>  
+                        <a href="/tagged/theme" title="Bootstrap themes"><span class="label">theme</span></a> 
+                        <a href="/tagged/css"><span class="label">css</span></a> 
+                        <a href="/tagged/snippet" title="Bootstrap snippets"><span class="label">snippet</span></a> 
+                        <a href="/tagged/navbar" title="Bootstrap navbar example"><span class="label">navbar</span></a>  
+                        <a href="/tagged/javascript"><span class="label">javascript</span></a> 
+                        <a href="/tagged/affix"><span class="label">affix</span></a> 
+                        <a href="/tagged/jquery"><span class="label">jquery</span></a> 
+                        <a href="/tagged/custom" title="Bootstrap custom"><span class="label">customize</span></a> 
+                        <a href="/tagged/angularjs" title="Bootstrap AngularJS example"><span class="label">angularjs</span></a> 
+                        <a href="/tagged/scrollspy" ref="nofollow"><span class="label">scrollspy</span></a> 
+                        <a href="/tagged/button"><span class="label">button</span></a> 
+                        <a href="/tagged/tooltip"><span class="label">tooltip</span></a> 
+                        <a href="/tagged/fixed"><span class="label">fixed</span></a> 
+                        <a href="/tagged/dropdown"><span class="label">dropdown</span></a> 
+                        <a href="/tagged/collapse"><span class="label">collapse</span></a> 
+                        <a href="/tagged/carousel"><span class="label">carousel</span></a> 
+                        <br>
+                        <a href="/tags"><u>All tags</u></a><br>
+                        
+                        <br><br>
+                        <small>Top users</small><br>
+                        
+                        
+                        
+                        
+                        <br>
+                        <a href="/users"><u>All users</u></a> | <a href="/upgrade"><u>Upgrade</u></a>
+                        <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-group">
+            <div class="accordion-heading">
+            <a class="accordion-toggle" title="Bootstrap starter layouts with HTML, CSS and Javascript" data-toggle="collapse" data-parent="#acc" href="#templates">Templates</a>
+            </div>
+            <div id="templates" class="accordion-body collapse ">
+                <div class="accordion-inner">
+                    <ul class="nav" style="padding-left:17px;">
+                        <li><a href="#" data="75225" class="layout">Basic starter</a></li>
+                        <li><a href="#" data="75231" class="layout">Fixed Nav w/sticky footer</a></li>
+                        <li><a href="#" data="62603" class="layout">Carousel layout</a></li>
+                        <li><a href="#" data="72741" class="layout">Landing page</a></li>
+                        <li><a href="#" data="100983" class="layout">Affix left sidebar + scrollspy</a></li>
+                        <li><a href="#" data="96937" class="layout">App template (full height)</a></li>
+                        <li><a href="#" data="88026" class="layout">Off-canvas sidebar</a></li>
+                        <li><a href="#" data="jssb76zBjN" class="layout">AngularJS starter</a></li>
+                        <li class="divider"><br></li>
+                        <li><small><a href="https://bootstrapbay.com/?ref=skelly" rel="nofollow" target="ext"><u>BootstrapBay</u></a></small></li>
+                        <li><small><a href="http://www.templatestash.com/l/bootstrap-templates" rel="nofollow" target="ext"><u>TemplateStash</u></a></small></li>
+                        <li><small><a href="https://wrapbootstrap.com/?ref=bootply" rel="nofollow" target="ext"><u>WrapBootstrap</u></a></small></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-group">
+            <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#acc" href="#resources" title="Official and unofficial Bootstrap sites">Resources </a>
+            </div>
+            <div id="resources" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <ul class="nav" style="padding-left:17px;">
+                    <li><a href="http://getbootstrap.com" target="ext" rel="nofollow">Bootstrap 3 Docs</a></li>
+                    <li><a href="http://v4-alpha.getbootstrap.com" target="ext" rel="nofollow">Bootstrap 4 Docs</a></li>
+                    <li><a href="http://upgrade-bootstrap.bootply.com/" target="ext" rel="nofollow">Bootstrap Upgrade Tool</a></li>
+                    <li><a href="http://bootstrap4.guide" target="ext" title="Bootstrap 4 themes and upgrade info">Bootstrap 4 Guide</a></li>
+                    <li><a href="http://www.bootbundle.com" title="Themes and snippets bundle" rel="nofollow" target="ext">BootBundle</a></li>
+                    <li><a href="https://bootstrapbay.com/?ref=skelly" rel="nofollow" title="Find premium Bootstrap themes" target="ext">BootstrapBay</a></li>
+                    <li><a href="http://bootstrap.theme.cards" title="Bootstrap themes" rel="nofollow" target="ext">Theme.cards</a></li>
+                    <li class="divider"><br></li>
+                    <li><a href="http://codeply.com" rel="nofollow" title="Responsive design editor" target="ext">Codeply Editor</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-group">
+            <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#acc" href="#about">About <span class="pull-right" style="text-align:center;"><i class="icon-info-sign"> </i></span></a>
+            </div>
+            <div id="about" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <div class="well" style="font-size:80%;">
+                        <h5><a href="/about" title="About Bootply">Bootply v1.2.1 </a><br><small>An unofficial Bootstrap playground.</small></h5>
+                        <a href="https://twitter.com/Bootply" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @Bootply</a><br>
+                        <a class="fb-like hidden-phone hidden-tablet" data-href="http://bootply.com" data-send="false" data-layout="button_count" data-width="80" data-show-faces="false" data-font="arial"></a><br>
+                        <h5><a href="https://github.com/iatek/bootply">Fork on GitHub</a> | <a data-toggle="modal" role="button" href="#contactModal">Contact</a></h5>
+                        <br>
+                        <a href="/render/59717" title="Help" target="ext"><i class="icon-question-sign" style="font-size:32pt;"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <br><br>
+</div>
+<div class="ui-layout-center hidden-phone hidden-tablet" style="display:none;" id="main">
+    <div class="ui-layout-north">
+        <div class="ui-layout-west">
+            <div class="pane-label" title="Javascript and jQuery code goes here. Bootstrap and jQuery have been included so that you can use any of Bootstrap Javascript components here."><code>javascript</code></div>
+            <textarea class="editor" id="js1" name="js" placeholder="Java or jQuery code here"></textarea>
+        </div>
+        <div class="ui-layout-center">
+            <div class="pane-label" title="Use CSS here to override or extend the Bootstrap CSS classes. The Bootstrap CSS has already been included so don`t import it here."><code>css</code></div>
+            <textarea class="editor ui-layout-content" id="css1" name="cs" placeholder="Override Bootstrap and custom CSS here">/* CSS used here will be applied after bootstrap.css */</textarea>
+        </div>
+    </div>
+    <div class="ui-layout-center" id="htmlPane">
+        <div id="editorMenu" class="ui-layout-ignore">
+            <div id="toolbarMenu" style="display:none;">
+                <div class="btn-group">
+                <button class="btn btn-mini pickTag" data="Base_CSS.Layouts.container" title="Insert a 'container' class div element">.container</button> 
+                <button class="btn btn-mini pickTag" data="Base_CSS.Layouts.row" title="Insert a 'row' class div element">.row</button> 
+                <button class="btn btn-mini pickTag" data="Base_CSS.Layouts.col2" title="Insert a grid column 2 units wide">.col-2</button>
+                <button class="btn btn-mini pickTag" data="Base_CSS.Layouts.col3" title="Insert a grid column 3 units wide">.col-3</button>
+                <button class="btn btn-mini pickTag" data="Base_CSS.Layouts.col4" title="Insert a grid column 4 units wide">.col-4</button>
+                <button class="btn btn-mini pickTag" data="Base_CSS.Layouts.col6" title="Insert a grid column 6 units wide">.col-6</button>
+                <button class="btn btn-mini pickTag" data="Base_CSS.Layouts.well" title="Insert a 'well' class div">.well</button>
+                <button class="btn btn-mini pickTag" data="Base_CSS.Buttons.button" title="Insert a 'btn' class button">.btn</button>
+                </div>
+                <div class="btn-group">
+                <button class="btn btn-mini pickTag" data="HTML.Tags.h1" title="HTML: Insert a h1 heading tag">h1</button>
+                <button class="btn btn-mini pickTag" data="HTML.Tags.h2" title="HTML: Insert a h2 heading tag">h2</button>
+                <button class="btn btn-mini pickTag" data="HTML.Tags.a" title="HTML: Insert a link">a</button> 
+                <button class="btn btn-mini pickTag" data="HTML.Tags.p" title="HTML: Insert a paragraph">p</button>
+                <button class="btn btn-mini pickTag" data="HTML.Tags.ul" title="HTML: Insert an unordered list">ul</button>
+                <button class="btn btn-mini pickTag" data="HTML.Tags.li" title="HTML: Insert a list item">li</button>
+                <button class="btn btn-mini pickTag" data="HTML.Tags.span" title="HTML: Insert a span">span</button>
+                <button class="btn btn-mini pickTag" data="HTML.Tags.img" title="HTML: Insert an image">img</button>
+                <button class="btn btn-mini pickTag" data="HTML.Tags.table" title="HTML: Insert a table">table</button>
+                <button class="btn btn-mini pickTag" data="HTML.Tags.form" title="HTML: Insert a form">form</button>
+                <button class="btn btn-mini pickTag" data="HTML.Tags.hr" title="HTML: Insert a hr rule tag">hr</button>
+                </div>  
+                <br/>
+                <select class="selectpicker" data-width="94px" data-size="29" id="Base_CSSTool" title="Elements from Bootstrap CSS"><option class="special" value="">Base CSS</option></select>
+                <select class="selectpicker" data-width="107px" data-size="19" id="ComponentsTool" title="Navs, Buttons, and other components from Bootstrap"><option class="special" value="">Components</option></select>
+                <select class="selectpicker" data-width="95px" data-size="17" id="JavaScriptTool" title="JavaScript from Bootstrap"><option class="special" value="">JavaScript</option></select>
+                <select class="selectpicker" data-width="71px" data-size="32" id="IconsTool"><option class="special" value="">Icons</option></select>
+                <select class="selectpicker" data-width="70px" data-size="21" id="MiscTool"><option class="special" value="">Misc</option></select>
+                |
+                <select class="selectpicker" data-width="95px" id="ClassTool" title="A list of all Bootstrap CSS class names"><option class="special" value="">All Classes</option></select>
+                <button class="btn btn-mini" id="btnConvert" title="Convert this HTML from Bootstrap 2.x version to 3.0">2.x <i class="icon-chevron-right"></i> 3</button>
+            </div>
+        </div>
+        <div id="previewMenu" class="ui-layout-ignore">
+            <a href="#" id="btnFullscreen" title="Fullscreen preview" target="_new"><i class="icon-desktop icon-large"></i></a> 
+            <a href="#" id="btnPhone" title="Smartphone / mobile device preview"><i class="icon-mobile-phone icon-large"></i></a> 
+            
+            <a title="Download source code (upgrade feature)" href="#upgradeModal" role="button" data-toggle="modal"><i class="icon-cloud-download icon-large"></i></a>
+            
+        </div>
+        <div class="pane-label" title="Bootstrap friendly HTML markup goes here. Use the 'Toolbar' to paste Bootstrap elements and snippets."><code>html</code></div>
+        <textarea class="editor" id="htm1" name="ht" placeholder="Bootstrap friendly HTML here"></textarea>
+        
+        <div class="ad">
+          <div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div></div></div>
+        </div>
+        
+	</div>
+</div>
+<div class="ui-layout-south hidden-phone" style="display:none;">
+    <div class="pane-label" title="Click the 'Run' button to show results here in the preview pane."><code>preview</code></div>
+    <iframe src="http://s.bootply.com/render/X8w3pTBYSV" sandbox="allow-scripts allow-pointer-lock allow-same-origin allow-top-navigation" id="view1" name="view1" height="100%" width="100%" frameborder="0" scrolling="auto"></iframe>
+</div>
+<div id="dropster" class="ui-layout-ignore" style="display:none;">
+    <div id="topMenu" class="hidden-phone hidden-tablet">
+        <div id="box">
+            <div class="scroller scroller-left">
+              <i class="icon-chevron-left icon-3x"></i>
+            </div>
+            <div class="scroller scroller-right">
+              <i class="icon-chevron-right icon-3x"></i>
+            </div>
+            <div id="wrapper"> 
+                <div id="dragMenu">
+                    <div class="item" data="container">
+                          <div class="gridrow"> &nbsp; container &nbsp; </div>
+                    </div>
+                    <div class="item" data="row">
+                          <div class="gridrow"> &nbsp; row &nbsp; </div>
+                    </div>
+                    <div class="item spacer"> | </div>
+                    <div class="item" data="navbar">
+                        <div class="btn-group">
+                          <button class="btn">navbar</button>
+                          <button class="btn">link</button>
+                        </div>
+                    </div>
+                    <div class="item" data="col1">
+                         <div class="col2">8.3% </div>
+                    </div>
+                    <div class="item" data="col2">
+                         <div class="col2">12.5% </div>
+                    </div>
+                    <div class="item" data="col3">
+                     	 <div class="col2">25% </div>
+                    </div>
+                    <div class="item" data="col4">
+                     	 <div class="col2">33% </div>
+                    </div>
+                    <div class="item" data="col5">
+                     	 <div class="col2">41.6% </div>
+                    </div>
+                    <div class="item" data="col6">
+                         <div class="col2">50% </div>
+                    </div>
+                    <div class="item" data="col7">
+                     	 <div class="col2">58.3% </div>
+                    </div>
+                    <div class="item" data="col8">
+                     	 <div class="col2">66% </div>
+                    </div>
+                    <div class="item" data="col9">
+                          <div class="col2">75% </div>
+                    </div>
+                    <div class="item" data="col10">
+                          <div class="col2">83.3% </div>
+                    </div>
+                    <div class="item" data="col11">
+                          <div class="col2">91.6% </div>
+                    </div>
+                    <div class="item" data="col12">
+                          <div class="col2">100% </div>
+                    </div>
+                    <div class="item spacer"> | </div>
+                    <div class="item" data="hero" title="Jumbotron div">
+                        <div class="well"> <b>Hero</b> </div>
+                    </div>   
+                    <div class="item" data="well" title="Well div">
+                        <div class="well"> well </div>
+                    </div>    
+                    <div class="item spacer"> | </div>
+                    <div class="item" data="btn">
+                       	<button class="btn">button</button>
+                    </div>
+                    <div class="item" data="btn_group" title="Button group">
+                     	<div class="btn-group">
+                          <button class="btn">1</button>
+                          <button class="btn">2</button>
+                          <button class="btn">3</button>
+                        </div>
+                    </div>
+                    <div class="item" data="btn_dropdown">
+                        <button class="btn">dropdown <span class="caret"></span></button>
+                    </div>
+                    <div class="item spacer"> | </div>
+                    <div class="item" data="form" title="Form with inputs">
+                        &lt;form&gt;
+                    </div> 
+                    <div class="item" data="input_text">
+                        <input type="text" class="span1 input-small" placeholder="input">
+                    </div>
+                    <div class="item" data="input_select">
+                        <select class="input-small"><option>select</option><option>one</option><option>two</option></select>
+                    </div> 
+                    <div class="item" data="input_textarea">
+                        <textarea class="input-small" rows="1">textarea</textarea>
+                    </div>
+                    <div class="item" data="input_checkbox">
+                        <input type="checkbox" class="input-small">
+                    </div>
+                    <div class="item spacer"> | </div>
+                    <div class="item" data="h1" title="Heading 1">
+                        <h1>h1</h1>
+                    </div>
+                    <div class="item" data="h2" title="Heading 2">
+                        <h2>h2</h2>
+                    </div>  
+                    <div class="item" data="h3" title="Heading 3">
+                        <h3>h3</h3>
+                    </div>  
+                    <div class="item" data="h4" title="Heading 4">
+                        <h4>h4</h4>
+                    </div>
+                    <div class="item" data="small" title="Small text">
+                        <small class="small">small</small>
+                    </div>
+                    <div class="item spacer"> | </div>
+                    <div class="item" data="icon" title="Icon">
+                        <i class="icon-info-sign icon-2x"></i>
+                        <div class="small"><small>icon</small></div>
+                    </div>  
+                    <div class="item" data="image" title="Image">
+                        <i class="icon-picture icon-large"></i>
+                    </div>
+                    <div class="item" data="big_image" title="Big image">
+                        <i class="icon-picture icon-3x"></i>
+                    </div>
+                    <div class="item spacer"> | </div>
+                    <div class="item" data="table" title="Table">
+                        <i class="icon-table icon-2x"></i>
+                        <div class="small"><small>table</small></div>
+                    </div>
+                    <div class="item" data="hr" title="Horizontal rule">
+                        &lt;hr&gt;<br>
+                    </div>
+                    <div class="item" data="label" title="Label span">
+                        <span class="label">label</span>
+                    </div>    
+                    <div class="item" data="badge" title="Badge span">
+                        <span class="badge">badge</span>
+                    </div>
+                    <div class="item" data="media">
+                        [media]
+                    </div>
+                    <div class="item" data="lorem">
+                        "Lorem ipsum.."
+                    </div>
+                </div>
+            </div>
+        </div><!--/box-->
+        <div id="hoverStatus" style="padding:3px;margin-top:18px;color:#696969;font-weight:800;font-size:13px;"></div>
+    </div><!--/topMenu-->
+    <iframe id="dropFrame" src="/pre" frameborder='0' height='100%' width='100%'></iframe>
+    <iframe id="preFrame" style="display:none;" src="/run" frameborder='0' height='100%' width='100%'></iframe>
+    <div id="context-menu" class="ui-layout-ignore" style="display:none;">
+        <ul>
+            <li class="context-heading"> </li>
+            <li class="divider-vertical"> </li>
+            <li>
+              <ul>
+                <table class="table">
+                  <tbody>
+                  <tr>
+                    <td>id</td>
+                    <td><input type="text" id="context-menu-id"></td>
+                  </tr>
+                  <tr>
+                    <td>style</td>
+                    <td><input type="text" id="context-menu-style"></td>
+                  </tr>
+                  <tr>
+                    <td>class</td>
+                    <td><input type="text" id="context-menu-class"></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td><button type="button" class="btn btn-mini" id="optSave">OK</button></td>
+                  </tr>
+                </tbody>
+                </table>
+              </ul>
+            </li>
+            <li><a href="#" id="optDel"><i class="icon-trash"></i> Delete</a></li>
+            <li><a href="#" id="optCopy"><i class="icon-copy"></i> Copy</a></li>
+        </ul>
+    </div>
+</div>
+<div id="pickStarterModal" class="modal hide">
+    <div class="modal-header">
+        <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
+         <h3 title="Bootstrap Templates">Starter Template</h3>
+    </div>
+    <div class="modal-body pull-center">
+      <p>Click on one of the templates to begin</p>
+        <ul class="thumbnails pull-center">
+          <li class="thumbnail"><a href="#" data="61937" data-dismiss="modal" class="layout" title="Simple"><img style="width:125px;height:90px;" src="/assets/thumbnails/bp_simple.PNG"></a><br>Simple</li>
+          <li class="thumbnail"><a href="#" data="61935" data-dismiss="modal" class="layout" title="Carousel"><img style="width:125px;height:90px;" src="/assets/thumbnails/bp_slider.PNG"></a><br>Slider</li>
+          <li class="thumbnail"><a href="#" data="63275" data-dismiss="modal" class="layout" title="3 Column"><img style="width:125px;height:90px;" src="/assets/thumbnails/bp_3column.PNG"></a><br>3 Columns</li>
+          </ul>
+    </div>
+    <div class="modal-footer pull-center">
+      <a href="#" data-dismiss="modal" aria-hidden="true" class="btn secondary layout">No Template. Open the Visual Editor.</a>
+    </div>
+</div>
+<div id="metadataModal" class="modal hide">
+    <div class="modal-header">
+        <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
+        <h3>Details</h3>
+        <p>label, describe, and tag</p>
+    </div>
+    <div class="modal-body">
+          <form class="form form-horizontal" id="formMetadata">
+              <div class="control-group">
+                  <label class="control-label" for="inputSender">Name</label>
+                  <div class="controls">
+                      <input type="text" name="sender" id="inputSender" placeholder="Heading, title or label" class="">
+                  </div>
+              </div>
+              <div class="control-group">
+                  <label class="control-label" for="inputMessage">Description</label>
+                  <div class="controls">
+                      <textarea name="notes" rows="4" id="inputMessage" placeholder="Description"></textarea>
+                  </div>
+              </div>
+              <div class="control-group">
+                  <label class="control-label" for="inputEmail">Tags</label>
+                  <div class="controls">
+                      <input type="text" name="email" id="inputEmail" placeholder="tag1,tag2,tag3" class="">
+                      <input name="token" id="token" type="hidden" value="4MIBSTvz-LK4wDMunrQfTqXf3PHWJG9FF9ZU">
+                  </div>
+              </div>
+          </form>
+    </div>
+    <div class="modal-footer pull-center">
+        <a href="#" data-dismiss="modal" aria-hidden="true" class="btn">Cancel</a>     
+        <a href="#" data-dismiss="modal" aria-hidden="true" id="btnMetadata" role="button" class="btn btn-success">Save</a>
+    </div>
+</div>
+<div id="decoder" class="ui-layout-ignore" style="display:none;"><div class="container">
+    <h1>Edit Profile</h1>
+  	<hr>
+	<div class="row">
+      <!-- left column -->
+      <div class="col-md-3">
+        <div class="text-center">
+          <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+          <h6>Upload a different photo...</h6>
+          
+          <input type="file" class="form-control">
+        </div>
+      </div>
+      
+      <!-- edit form column -->
+      <div class="col-md-9 personal-info">
+        <div class="alert alert-info alert-dismissable">
+          <a class="panel-close close" data-dismiss="alert">×</a> 
+          <i class="fa fa-coffee"></i>
+          This is an <strong>.alert</strong>. Use this to show important messages to the user.
+        </div>
+        <h3>Personal info</h3>
+        
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label class="col-lg-3 control-label">First name:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" value="Jane">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Last name:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" value="Bishop">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Company:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" value="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Email:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" value="janesemail@gmail.com">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Time Zone:</label>
+            <div class="col-lg-8">
+              <div class="ui-select">
+                <select id="user_time_zone" class="form-control">
+                  <option value="Hawaii">(GMT-10:00) Hawaii</option>
+                  <option value="Alaska">(GMT-09:00) Alaska</option>
+                  <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+                  <option value="Arizona">(GMT-07:00) Arizona</option>
+                  <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+                  <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
+                  <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+                  <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Username:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="text" value="janeuser">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Password:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="password" value="11111122333">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Confirm password:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="password" value="11111122333">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-8">
+              <input type="button" class="btn btn-primary" value="Save Changes">
+              <span></span>
+              <input type="reset" class="btn btn-default" value="Cancel">
+            </div>
+          </div>
+        </form>
+      </div>
+  </div>
+</div>
+<hr></div>
+<script src="/bootply.js"></script>
+
+            <div id="push"></div>
+        </div>
+        <footer id="footer">
+            <div class="row-fluid">
+                <div class="span3">
+                    <p> 
+                        <a href="http://twitter.com/Bootply" rel="nofollow" title="Bootply on Twitter" target="ext">Twitter</a><br>
+                        <a href="https://plus.google.com/+Bootply" rel="publisher">Google+</a><br>
+                        <a href="http://facebook.com/Bootply" rel="nofollow" title="Bootply on Facebook" target="ext">Facebook</a><br>
+                        <a href="https://github.com/iatek/bootply" title="Bootply on GitHub" target="ext">GitHub</a><br>
+                    </p>
+                </div>
+                <div class="span3">
+                    <p> 
+                        <a data-toggle="modal" role="button" href="#contactModal">Contact</a><br>
+                        <a href="/tags">Tags</a><br>
+                        <a href="/bootstrap-community">Community</a><br>
+                        <a href="/upgrade">Upgrade</a><br>
+                        <a href="/templates">Templates</a><br>
+                    </p>
+                </div>
+                <div class="span3">
+                    <p> 
+                        <a href="http://bootstrap.theme.cards" target="_ext" rel="nofollow" title="Free Bootstrap themes">Bootstrap Themes</a><br>
+                        <a href="http://www.bootbundle.com" target="ext" rel="nofollow">BootBundle</a><br>
+                        <a href="http://www.bootstrapzero.com" target="_ext" rel="nofollow" title="Free Bootstrap themes" target="ext">BootstrapZero</a><br>
+                        <a href="http://www.html5zero.com" title="Free responsive templates" target="_ext">Responsive Templates</a><br>
+                        <a href="http://www.codeply.com" rel="nofollow" title="Responsive design editor" target="_ext">Codeply</a><br>
+                    </p>
+                </div>
+                <div class="span3">
+                    <p>
+                        <a href="/about#privacy">Privacy</a><br>
+                        <a href="/about#terms">Terms</a><br><br>
+                        <br>
+                        <span class="pull-right">Copyright 2013-2017 <a href="/" title="The Bootstrap Playground">Bootply&#8482;</a></span>
+                    </p>
+                    
+                </div>
+            </div>
+        </footer>
+        
+        <script src="/plugins/bootstrap-select.min.js"></script>
+        <script data-cfasync="false" src="/codemirror/jquery.codemirror.js"></script>
+        <script data-cfasync="false" src="/beautifier.js"></script>
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-40413119-1', 'bootply.com');
+          ga('send', 'pageview');
+        </script>
+        <script>
+        jQuery.fn.shake = function(intShakes, intDistance, intDuration, foreColor) {
+            this.each(function() {
+                if (foreColor && foreColor!="null") {
+                    $(this).css("color",foreColor); 
+                }
+                $(this).css("position","relative"); 
+                for (var x=1; x<=intShakes; x++) {
+                $(this).animate({left:(intDistance*-1)}, (((intDuration/intShakes)/4)))
+                .animate({left:intDistance}, ((intDuration/intShakes)/2))
+                .animate({left:0}, (((intDuration/intShakes)/4)));
+                $(this).css("color",""); 
+            }
+          });
+        return this;
+        };
+        </script>
+        <script>
+        $(document).ready(function() {
+        
+            $('.tw-btn').fadeIn(3000);
+            //$('.alert').delay(5000).fadeOut(1500);
+            
+            $('#btnLogin').click(function(){
+                $(this).text("...");
+                $.ajax({
+                    url: "/loginajax",
+                    type: "post",
+                    data: $('#formLogin').serialize(),
+                    success: function (data) {
+                        //console.log('data:'+data);
+                        if (data.status==1&&data.user) { //logged in
+                            $('#menuLogin').hide();
+                            $('#lblUsername').text(data.user.username);
+                            $('#menuUser').show();
+                            /*
+                            $('#completeLoginModal').modal('show');
+                            $('#btnYes').click(function() {
+                                window.location.href="/";
+                            });
+                            */
+                        }
+                        else {
+                            $('#btnLogin').text("Login");
+                            prependAlert("#spacer",data.error);
+                            $('#btnLogin').shake(4,6,700,'#CC2222');
+                            $('#username').focus();
+                        }
+                    },
+                    error: function (e) {
+                        $('#btnLogin').text("Login");
+                        console.log('error:'+JSON.stringify(e));
+                    }
+                });
+            });
+            $('#btnRegister').click(function(){
+                $(this).text("Wait..");
+                $.ajax({
+                    url: "/signup?format=json",
+                    type: "post",
+                    data: $('#formRegister').serialize(),
+                    success: function (data) {
+                        console.log('data:'+JSON.stringify(data));
+                        if (data.status==1) {
+                            $('#btnRegister').attr("disabled","disabled");
+                            $('#formRegister').text('Thanks. You can now login.');
+                        }
+                        else {
+                            prependAlert("#spacer",data.error);
+                            $('#btnRegister').shake(4,6,700,'#CC2222');
+                            $('#btnRegister').text("Sign Up");
+                            $('#inputEmail').focus();
+                        }
+                    },
+                    error: function (e) {
+                        $('#btnRegister').text("Sign Up");
+                        console.log('error:'+e);
+                    }
+                });
+            });
+            
+            $('.loginFirst').click(function(){
+                $('#navLogin').trigger('click');
+                return false;
+            });
+            
+            $('#btnForgotPassword').on('click',function(){
+                
+                if ($('#inputEmailForgot').val()==="") {
+                    prependAlert("#spacer","Specify the email address.");
+                }
+                else {
+                    $.ajax({
+                        url: "/resetPassword",
+                        type: "post",
+                        data: $('#formForgotPassword').serializeObject(),
+                        success: function (data) {
+                            if (data.status==1){
+                                prependAlert("#spacer",data.msg);
+                                return true;
+                            }
+                            else {
+                                prependAlert("#spacer","Your password could not be reset.");
+                                return false;
+                            }
+                        },
+                        error: function (e) {
+                            console.log('error:'+e);
+                        }
+                    });
+                }
+                
+            });
+            
+            $('#btnContact').click(function(){
+                
+                $.ajax({
+                    url: "/contact",
+                    type: "post",
+                    data: $('#formContact').serializeObject(),
+                    success: function (data) {
+                        if (data.status==1){
+                            prependAlert("#spacer","Thanks. We got your message and will get back to you shortly.");
+                             $('#contactModal').modal('hide');
+                            return true;
+                        }
+                        else {
+                            prependAlert("#spacer",data.error);
+                            return false;
+                        }
+                    },
+                    error: function (e) {
+                        console.log('error:'+e);
+                    }
+                });
+                return false;
+            });
+            
+            /*
+            $('.nav .dropdown-menu input').on('click touchstart',function(e) {
+                e.stopPropagation();
+            });
+            */
+            
+            
+            
+            
+            
+        });
+        $.fn.serializeObject = function()
+        {
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function() {
+                if (o[this.name] !== undefined) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
+        var prependAlert = function(appendSelector,msg){
+            $(appendSelector).after('<div class="alert alert-info alert-block affix" id="msgBox" style="z-index:1300;margin:14px!important;">'+msg+'</div>');
+            $('.alert').delay(3500).fadeOut(1000);
+        }
+        </script>
+       
+        <div id="completeLoginModal" class="modal hide">
+            <div class="modal-header">
+                <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
+                 <h3>Do you want to proceed?</h3>
+            </div>
+            <div class="modal-body">
+                <p>This page must be refreshed to complete your login.</p>
+                <p>You will lose any unsaved work once the page is refreshed.</p>
+                <br><br>
+                <p>Click "No" to cancel the login process.</p>
+                <p>Click "Yes" to continue...</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#" id="btnYes" class="btn danger">Yes, complete login</a>
+              <a href="#" data-dismiss="modal" aria-hidden="true" class="btn secondary">No</a>
+            </div>
+        </div>
+        <div id="forgotPasswordModal" class="modal hide">
+            <div class="modal-header">
+                <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
+                 <h3>Password Lookup</h3>
+            </div>
+            <div class="modal-body">
+                  <form class="form form-horizontal" id="formForgotPassword">    
+                  <div class="control-group">
+                      <label class="control-label" for="inputEmailForgot">Email</label>
+                      <div class="controls">
+                          <input name="_csrf" id="token" type="hidden" value="4MIBSTvz-LK4wDMunrQfTqXf3PHWJG9FF9ZU">
+                          <input type="email" name="email" id="inputEmailForgot" placeholder="you@youremail.com" required="">
+                          <span class="help-block"><small>Enter the email address you used to sign-up.</small></span>
+                      </div>
+                  </div>
+                  </form>
+            </div>
+            <div class="modal-footer pull-center">
+                <a href="#" data-dismiss="modal" aria-hidden="true" class="btn">Cancel</a> 	
+            	<a href="#" data-dismiss="modal" id="btnForgotPassword" class="btn btn-success">Reset Password</a>
+            </div>
+            
+        </div>
+        <div id="upgradeModal" class="modal hide">
+            <div class="modal-header">
+                <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
+                 <h4>Would you like to upgrade?</h4>
+            </div>
+            <div class="modal-body">
+                  <p class="text-center"><strong></strong></p>
+                  <h1 class="text-center">$9<small>/mo</small></h1>
+                  <p class="text-center"><small>Unlimited plys. Unlimited downloads. No Ads.</small></p>
+                  <p class="text-center"><img src="/assets/i_visa.png" width="50" alt="visa" /> <img src="/assets/i_mc.png" width="50" alt="mastercard"  /> <img src="/assets/i_amex.png" width="50" alt="amex" /> <img src="/assets/i_discover.png" width="50" alt="discover" /> <img src="/assets/i_paypal.png" width="50" alt="paypal" /></p>
+            </div>
+            <div class="modal-footer pull-center">
+                <a href="/upgrade" class="btn btn-block btn-huge btn-success"><strong>Upgrade Now</strong></a>
+            	<a href="#" data-dismiss="modal" class="btn btn-block btn-huge">No Thanks, Maybe Later</a>
+            	
+            </div>
+        </div>
+        <div id="contactModal" class="modal hide">
+            <div class="modal-header">
+                <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
+                <h3>Contact Us</h3>
+                <p>suggestions, questions or feedback</p>
+            </div>
+            <div class="modal-body">
+                  <form class="form form-horizontal" id="formContact">
+                      <input name="_csrf" id="token" type="hidden" value="4MIBSTvz-LK4wDMunrQfTqXf3PHWJG9FF9ZU">
+                      <div class="control-group">
+                          <label class="control-label" for="inputSender">Name</label>
+                          <div class="controls">
+                              <input type="text" name="sender" id="inputSender" class="input-large" placeholder="Your name">
+                          </div>
+                      </div>
+                      <div class="control-group">
+                          <label class="control-label" for="inputMessage">Message</label>
+                          <div class="controls">
+                              <textarea name="notes" rows="5" id="inputMessage" class="input-large" placeholder="Type your message here"></textarea>
+                          </div>
+                      </div>
+                      <div class="control-group">
+                          <label class="control-label" for="inputEmail">Email</label>
+                          <div class="controls">
+                              <input type="text" name="email" id="inputEmail" class="input-large" placeholder="you@youremail.com (for reply)" required="">
+                          </div>
+                      </div>
+                  </form>
+            </div>
+            <div class="modal-footer pull-center">
+                <a href="#" data-dismiss="modal" aria-hidden="true" class="btn">Cancel</a>     
+                <a href="#" data-dismiss="modal" aria-hidden="true" id="btnContact" role="button" class="btn btn-success">Send</a>
+            </div>
+        </div>
+
+	</body>
+	<script src="/plugins/bootstrap-pager.js"></script>
+</html>
